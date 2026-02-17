@@ -1,0 +1,77 @@
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    background-image: url('../imagenes/fondo_logeo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+#login {
+    background-color: white; 
+    width: 400px; 
+    padding: 40px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 15px;              
+}
+
+#logo {
+    width: 150px; 
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+.campos{
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.inputs{
+    width: 100%;
+}
+
+#iniciar-sesion{
+    width: 100%;
+    padding: 12px;
+    background-color: #388f33; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.5s;
+}
+
+#iniciar-sesion:hover {
+    background-color: #375839;
+}
+
+a {
+    font-size: 14px;
+    color: gray;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
