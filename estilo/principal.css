@@ -1,0 +1,221 @@
+body{
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header{
+    background-color: #375839;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#logo{
+    width: 100px;
+    height: 80px;
+    margin-left: 50px;
+    padding-top: 15px;
+}
+
+nav{
+    margin-left: 20px;
+}
+
+nav ul{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    color: white;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#iconos-derecha{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#bandera{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#bandera:hover{
+    transform: scale(1.1);
+}
+
+#user{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#user:hover{
+    transform: scale(1.1);
+}
+
+#bienvenida{
+    background-image: url('../imagenes/pista_gigante.jpg');
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#bienvenida h2{
+    color: white;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#tipos-pistas {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+#tipos-pistas h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #375839;
+}
+
+#conjunto-pistas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+.pista-caja {
+    background-color: white;
+    padding: 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #375839;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.pista-caja img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.pista-caja > :first-child {
+    padding: 15px 20px;
+}
+
+.pista-caja:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+#promociones {
+    padding: 60px 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#promociones h2 {
+    font-size: 32px;
+    color: #375839;
+    margin-bottom: 20px;
+}
+
+#promociones p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    color: #444;
+}
+
+#opiniones {
+    padding: 60px 40px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+#opiniones h2 {
+    font-size: 32px;
+    color: #375839;
+    margin-bottom: 40px;
+}
+
+.opinion {
+    background-color: white;
+    padding: 20px 30px;
+    margin: 15px auto;
+    max-width: 700px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#contacto {
+    padding: 60px 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#contacto h2 {
+    font-size: 32px;
+    color: #375839;
+    margin-bottom: 20px;
+}
+
+#contacto p {
+    font-size: 18px;
+    color: #444;
+    margin: 8px 0;
+}
+
