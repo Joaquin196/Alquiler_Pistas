@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NovaSport - Polideportivo</title>
     <link rel="stylesheet" href="estilo/principal.css">
 </head>
 <body>
@@ -24,34 +24,74 @@
             <img src="imagenes/acceso.png" alt="user" id="user">
         </div>
     </header>
+
     <section id="bienvenida">
         <h2>Bienvenido a NovaSport</h2>
     </section>
+
     <section id="tipos-pistas">
         <h2>Reserva tu pista</h2>
         <div id="conjunto-pistas">
             <div class="pista-caja">
-                Pádel
-                <img src="imagenes/vertical_padel.jpg" alt="vertical_padel">
+                <div class="pista-titulo">Pádel</div>
+                <img src="imagenes/pista_padel.jpg" alt="vertical_padel">
             </div>
             <div class="pista-caja">
-                Tenis
-                <img src="imagenes/vertical_tenis.jpg" alt="vertical_tenis">
+                <div class="pista-titulo">Tenis</div>
+                <img src="imagenes/pista_tenis.jpg" alt="vertical_tenis">
             </div>
             <div class="pista-caja">
-                Fútbol
-                <img src="imagenes/vertical_futbol.jpg" alt="vertical_futbol">
+                <div class="pista-titulo">Fútbol</div>
+                <img src="imagenes/pista_futbol.jpg" alt="vertical_futbol">
             </div>
             <div class="pista-caja">
-                Baloncesto
-                <img src="imagenes/vertical_baloncesto.jpg" alt="vertical_baloncesto">
+                <div class="pista-titulo">Baloncesto</div>
+                <img src="imagenes/pista_basket.jpg" alt="vertical_baloncesto">
             </div>
         </div>
     </section>
-    <section id="promociones">
+
+    <section id="comp-prom">
         <h2>Promociones y eventos</h2>
-        <p>Participa en nuestros torneos semanales o aprovecha descuentos especiales.</p>
+        <p id="comp-subtitulo">Participa en nuestros torneos semanales o aprovecha descuentos especiales.</p>
+        
+        <div id="comp-contenido">
+            <div class="contenedor-img-promo">
+                <img src="imagenes/competicion.jpg" alt="competicion" id="competicion">
+            </div>
+            <div id="comp-texto">
+                <h3>Descubre nuestras competiciones</h3>
+                <p>
+                    En NovaSport, no solo alquilas una pista, te unes a una comunidad. 
+                    Organizamos ligas locales y torneos relámpago todos los meses para que pongas a prueba tu nivel.
+                </p>
+                <p>
+                    <strong>Ligas Regulares:</strong> Clasificaciones en tiempo real y estadísticas de equipo.<br>
+                    <strong>Torneos de Fin de Semana:</strong> Formatos rápidos con trofeos y premios en material deportivo.<br>
+                    <strong>Categorías por Nivel:</strong> Desde ligas de amigos hasta competiciones federadas.
+                </p>
+                <p>¡Inscribe a tu equipo hoy mismo y empieza a escribir tu historia en nuestras pistas!</p>
+            </div>
+        </div>
+
+        <div id="prom-contenido">
+            <div id="prom-texto">
+                <h3>¡OFERTA FLASH: 20% DE DESCUENTO SOLO HOY!</h3>
+                <p>
+                    ¿Tienes ganas de un partido? No dejes pasar esta oportunidad única. 
+                    Solo por hoy, todas las reservas de pistas de pádel tienen un descuento directo del 20%.
+                </p>
+                <p>
+                    El ahorro se aplicará automáticamente al realizar tu reserva a través de nuestra web antes de medianoche. 
+                    ¡Corre, que las pistas vuelan!
+                </p>
+            </div>
+            <div class="contenedor-img-promo">
+                <img src="imagenes/prom-padel.jpg" alt="promocion" id="promocion">
+            </div>
+        </div>
     </section>
+
     <section id="opiniones">
         <h2>Opiniones de jugadores</h2>
         <div class="opinion">
@@ -61,6 +101,7 @@
             <p>"Las pistas están siempre en perfecto estado" – Samuel de Luque</p>
         </div>
     </section>
+
     <section id="contacto">
         <h2>Contacto y ubicación</h2>
         <p>📍 Calle Deportiva 12, Orihuela</p>

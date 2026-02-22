@@ -1,10 +1,10 @@
-body{
+body {
     border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
 
-header{
+header {
     background-color: #375839;
     height: auto;
     display: flex;
@@ -16,18 +16,14 @@ header{
     z-index: 100;
 }
 
-#logo{
+#logo {
     width: 100px;
     height: 80px;
     margin-left: 50px;
     padding-top: 15px;
 }
 
-nav{
-    margin-left: 20px;
-}
-
-nav ul{
+nav ul {
     flex-direction: row;
     justify-content: center;
     display: flex;
@@ -38,10 +34,6 @@ nav ul{
     font-family: Arial;
     color: white;
     align-items: center;
-}
-
-nav ul li {
-    position: relative;
 }
 
 nav ul li a {
@@ -55,10 +47,9 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
 }
 
-#iconos-derecha{
+#iconos-derecha {
     display: flex;
     gap: 50px;
     align-items: center;
@@ -66,29 +57,18 @@ nav ul li a:hover {
     margin-right: 50px;
 }
 
-#bandera{
+#bandera, #user {
     width: 40px;
     height: 40px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-#bandera:hover{
+#bandera:hover, #user:hover {
     transform: scale(1.1);
 }
 
-#user{
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-#user:hover{
-    transform: scale(1.1);
-}
-
-#bienvenida{
+#bienvenida {
     background-image: url('../imagenes/pista_gigante.jpg');
     width: 100%;
     height: 600px;
@@ -98,18 +78,15 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
 }
 
-#bienvenida h2{
+#bienvenida h2 {
     color: white;
     font-size: 48px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
+/* --- SECCIÓN PISTAS CON EFECTO BOTÓN --- */
 #tipos-pistas {
     padding: 60px 40px;
     text-align: center;
@@ -130,92 +107,110 @@ nav ul li a:hover {
 
 .pista-caja {
     background-color: white;
-    padding: 0;
     border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #375839;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    cursor: pointer;
+    /* EFECTO SUAVE: */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EL EFECTO DE AMPLIACIÓN: */
+.pista-caja:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.pista-titulo {
+    padding: 15px;
+    font-weight: bold;
+    color: #375839;
 }
 
 .pista-caja img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
+    height: 200px;
+    object-fit: cover;
 }
 
-.pista-caja > :first-child {
-    padding: 15px 20px;
-}
-
-.pista-caja:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-#promociones {
-    padding: 60px 40px;
+/* --- SECCIÓN PROMOCIONES Y EVENTOS --- */
+#comp-prom {
+    padding: 80px 40px;
     background-color: #ffffff;
-    text-align: center;
+    text-align: center; 
 }
 
-#promociones h2 {
+#comp-prom h2 {
     font-size: 32px;
     color: #375839;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-#promociones p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: auto;
+#comp-subtitulo {
+    margin-bottom: 50px;
+}
+
+#comp-contenido, #prom-contenido {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+}
+
+#comp-imagen, .contenedor-img-promo {
+    flex: 0 0 450px;
+}
+
+#competicion, #promocion {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#comp-texto, #prom-texto {
+    flex: 1;
+    text-align: left; 
+}
+
+#comp-texto h3, #prom-texto h3 {
+    font-size: 28px;
+    color: #000000;
+    margin-top: 0;
+}
+
+#comp-texto p, #prom-texto p {
+    font-size: 17px;
+    line-height: 1.6;
     color: #444;
+    margin-bottom: 15px;
 }
 
+/* --- OPINIONES Y CONTACTO --- */
 #opiniones {
     padding: 60px 40px;
     background-color: #f5f5f5;
     text-align: center;
 }
 
-#opiniones h2 {
-    font-size: 32px;
-    color: #375839;
-    margin-bottom: 40px;
-}
-
 .opinion {
     background-color: white;
-    padding: 20px 30px;
+    padding: 20px;
     margin: 15px auto;
     max-width: 700px;
     border-radius: 10px;
-    font-size: 18px;
-    color: #333;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #contacto {
     padding: 60px 40px;
-    background-color: #ffffff;
     text-align: center;
-}
-
-#contacto h2 {
-    font-size: 32px;
-    color: #375839;
-    margin-bottom: 20px;
-}
-
-#contacto p {
-    font-size: 18px;
-    color: #444;
-    margin: 8px 0;
 }
 
