@@ -1,0 +1,112 @@
+/*HEADER*/
+
+header {
+    background-color: #375839;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#logo {
+    width: 100px;
+    height: 80px;
+    margin-left: 50px;
+    padding-top: 15px;
+}
+
+nav ul {
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    color: white;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#iconos-derecha {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#bandera, #user {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#bandera:hover, #user:hover {
+    transform: scale(1.1);
+}
+
+/*FOOTER*/
+
+footer {
+    background-color: #375839;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+#footer-nav-simple {
+    margin-bottom: 20px;
+}
+
+#footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+#footer-nav a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+#caja-footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+#caja-footer hr {
+    width: 60px;
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    margin: 20px auto;
+}
+
+#copyright {
+    margin-top: 15px !important;
+    font-size: 12px !important;
+    opacity: 0.7 !important;
+}
