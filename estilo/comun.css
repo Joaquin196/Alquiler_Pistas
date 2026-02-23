@@ -1,3 +1,11 @@
+/*CUERPO*/
+
+body {
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
 /*HEADER*/
 
 header {
