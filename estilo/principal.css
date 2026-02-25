@@ -32,6 +32,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 #conjunto-pistas a {
@@ -67,6 +69,36 @@
     object-fit: cover;
 }
 
+#ver-mas-pistas {
+    margin-top: 50px;
+    padding: 30px 20px 10px;
+    border-top: 1px solid #ddd;
+}
+
+#ver-mas-pistas p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.boton-explorar {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #375839;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.boton-explorar:hover {
+    background-color: #2a432b;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
 #comp-prom {
     padding: 80px 40px;
     background-color: #ffffff;
@@ -93,7 +125,7 @@
     margin: 0 auto 60px auto;
 }
 
-#comp-imagen, .contenedor-img-promo {
+.contenedor-img-promo {
     flex: 0 0 450px;
 }
 
@@ -113,7 +145,7 @@
 
 #comp-texto h3, #prom-texto h3 {
     font-size: 28px;
-    color: #000000;
+    color: #000;
     margin-top: 0;
 }
 
@@ -143,5 +175,3 @@
     padding: 60px 40px;
     text-align: center;
 }
-
-

@@ -1,0 +1,64 @@
+#contenedor-competiciones {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #375839;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#seccion-torneos, #seccion-ranking {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Lista de torneos con articles */
+.item-torneo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.btn-apuntarse {
+    color: #375839;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #375839;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-apuntarse:hover {
+    background-color: #375839;
+    color: white;
+}
+
+/* Tabla de ranking con ID */
+#tabla-ranking {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tabla-ranking th, #tabla-ranking td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #eee;
+}
+
+#tabla-ranking th {
+    background-color: #f9f9f9;
+    color: #333;
+}
