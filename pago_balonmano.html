@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Reserva - NovaSport</title>
+    <link rel="stylesheet" href="estilo/pago_balonmano.css">
+    <link rel="stylesheet" href="estilo/comun.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="principal.html"><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="reservar.html">Reservar pistas</a></li>
+                <li><a href="mis_reservas.html">Mis reservas</a></li>
+                <li><a href="competiciones.html">Competiciones</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div id="iconos-derecha">
+            <img src="imagenes/espana.png" alt="pais" id="bandera">
+            <img src="imagenes/acceso.png" alt="user" id="user">
+        </div>
+    </header>
+
+    <section id="contenedor-pago">
+        <div id="caja-pago">
+            <h2>Finalizar Reserva</h2>
+            <p id="resumen-pista">Pista: <strong>Pista de Balonmano</strong></p>
+            
+            <form id="form-pago">
+                <label>Nombre del titular</label>
+                <input type="text" placeholder="Nombre completo" class="campo-pago" required>
+
+                <label>Número de tarjeta</label>
+                <input type="text" placeholder="0000 0000 0000 0000" class="campo-pago" required>
+
+                <div id="fila-pago">
+                    <div>
+                        <label>Caducidad</label>
+                        <input type="text" placeholder="MM/AA" class="campo-pago" required>
+                    </div>
+                    <div>
+                        <label>CVV</label>
+                        <input type="password" placeholder="123" class="campo-pago" required>
+                    </div>
+                </div>
+
+                <a href="reservada.html" id="btn-pagar">Confirmar y Pagar 8,50€</a>
+            </form>
+            <a href="reserva_balonmano.html" id="btn-cancelar-pago">Cancelar y volver</a>
+        </div>
+    </section>
+</body>
+<footer>
+        <div id="caja-footer">
+            <div id="footer-nav">
+                <a href="">Reservar pistas</a>
+                <a href="">Mis reservas</a>
+                <a href="">Competiciones</a>
+                <a href="">Ayuda</a>
+            </div>
+            
+            <p id="copyright">&copy; 2026 NovaSport - Todos los derechos reservados</p>
+        </div>
+    </footer>
+</html>

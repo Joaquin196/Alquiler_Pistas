@@ -1,0 +1,66 @@
+#contenedor-pago {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f4f4f4;
+}
+
+#caja-pago {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+#caja-pago h2 { 
+    color: #375839; margin-bottom: 20px; text-align: center; 
+}
+
+#resumen-pista { 
+    margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; 
+}
+
+label { 
+    display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555; 
+}
+
+.campo-pago {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#fila-pago { 
+    display: flex; gap: 10px; 
+}
+
+#btn-pagar {
+    display: block;
+    background-color: #388f33;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#btn-pagar:hover { 
+    background-color: #375839; 
+}
+
+#btn-cancelar-pago {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+}
