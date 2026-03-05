@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Polideportivo</title>
+    <title>Login - NovaSport</title>
     <link rel="stylesheet" href="estilo/logeo.css">
-    
 </head>
 <body>
     <div id="login">
-        <form id="login-form" action="">
+        <form id="login-form">
             <img src="imagenes/logo-transparent-png.png" alt="Escudo del polideportivo" id="logo">
             <h2>Inicia sesión</h2>
             
@@ -21,12 +20,11 @@
                 <input type="password" name="contraseña" class="campos" placeholder="Contraseña" required>
             </div>
             
-            <input type="submit" value="Iniciar sesión" id="iniciar-sesion">
+            <a href="principal.html" id="iniciar-sesion">Iniciar sesión</a>
 
-            <h2>¿No tiene cuenta?</h2>
-            <a href="registro.html">Regístrese aquí</a>
-            
-            <a href="">¿Ha olvidado su contraseña?</a>
+            <p id="texto-registro">¿No tiene cuenta?</p>
+            <a href="registro.html" class="link-secundario">Regístrese aquí</a>
+            <a href="rec-contraseña.html" class="link-secundario">¿Ha olvidado su contraseña?</a>
         </form>
     </div>
 </body>

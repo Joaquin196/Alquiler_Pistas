@@ -1,59 +1,53 @@
+/* Contenedor principal */
 #contenedor-reservas {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: sans-serif;
 }
 
-#cabecera-reservas {
+h1 {
+    color: #375839;
     text-align: center;
-    margin-bottom: 40px;
-}
-
-#proximas-citas, #historial-reservas {
-    margin-bottom: 50px;
 }
 
 h2 {
-    border-bottom: 2px solid #375839;
-    padding-bottom: 10px;
     color: #333;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #375839;
+    padding-bottom: 5px;
+    margin-top: 40px;
 }
 
-/* Tarjeta de reserva activa (article con ID) */
-#reserva-destacada {
-    background-color: white;
-    border-left: 5px solid #375839;
+/* Tarjetas de reserva activa */
+.reserva-activa {
+    border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
 }
 
-#tag-padel {
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: #e8f5e9; 
+.info-reserva strong {
     color: #2e7d32;
+    font-size: 14px;
 }
 
-#btn-cancelar-reserva {
+.info-reserva h3 {
+    margin: 5px 0;
+}
+
+.btn-cancelar {
     background-color: #c66666;
     color: white;
     border: none;
     padding: 10px 15px;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-weight: bold;
 }
 
-#btn-cancelar-reserva:hover {
+.btn-cancelar:hover {
     background-color: #a35252;
 }
 
@@ -61,20 +55,20 @@ h2 {
 #tabla-historial {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    margin-top: 15px;
 }
 
 #tabla-historial th, #tabla-historial td {
+    border: 1px solid #ddd;
+    padding: 12px;
     text-align: left;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
 }
 
 #tabla-historial th {
-    background-color: #f9f9f9;
+    background-color: #eee;
+    color: #333;
 }
 
-.estado-jugado {
-    color: #777;
-    font-style: italic;
+#tabla-historial tr:nth-child(even) {
+    background-color: #f2f2f2;
 }

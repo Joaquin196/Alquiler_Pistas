@@ -33,7 +33,18 @@ body {
     margin-bottom: 10px;
 }
 
-.campos{
+h2 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.inputs {
+    width: 100%;
+}
+
+.campos {
     width: 100%; 
     padding: 12px;
     border: 1px solid #ccc;
@@ -42,35 +53,38 @@ body {
     font-size: 16px;
 }
 
-.inputs{
+/* BOTÓN CORREGIDO */
+#iniciar-sesion {
+    display: block;        /* Ocupa todo el ancho y se comporta como bloque */
     width: 100%;
-}
-
-#iniciar-sesion{
-    width: 100%;
-    padding: 12px;
+    padding: 12px 0;       /* Espacio arriba y abajo */
     background-color: #388f33; 
     color: white;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;    /* Centra el texto horizontalmente */
+    text-decoration: none; /* QUITA LA LÍNEA BLANCA/SUBRAYADO */
+    box-sizing: border-box;
     transition: background 0.5s;
+    margin-top: 5px;
 }
 
 #iniciar-sesion:hover {
     background-color: #375839;
+    text-decoration: none; /* Asegura que no salga línea al pasar el ratón */
+    color: white;
 }
 
-a {
+/* Enlaces secundarios */
+.link-secundario {
     font-size: 14px;
     color: gray;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
-a:hover {
+.link-secundario:hover {
     text-decoration: underline;
-    color: #007bff;
+    color: #388f33;
 }

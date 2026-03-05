@@ -4,32 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Reservas - NovaSport</title>
-    <link rel="stylesheet" href="estilo/mis-reservas.css">
+    <link rel="stylesheet" href="estilo/mis_reservas.css">
     <link rel="stylesheet" href="estilo/comun.css">
 </head>
 <body>
+    <header>
+        <div>
+            <a href="principal.html"><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="reservar.html">Reservar pistas</a></li>
+                <li><a href="mis_reservas.html">Mis reservas</a></li>
+                <li><a href="competiciones.html">Competiciones</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div id="iconos-derecha">
+            <img src="imagenes/espana.png" alt="pais" id="bandera">
+            <img src="imagenes/acceso.png" alt="user" id="user">
+        </div>
+    </header>
+
     <section id="contenedor-reservas">
-        <header id="cabecera-reservas">
-            <h1>Mis Reservas</h1>
-            <p>Gestiona tus próximos partidos y revisa tu historial.</p>
-        </header>
+        <h1>Mis Reservas</h1>
 
         <section id="proximas-citas">
             <h2>Próximas Citas</h2>
-            <article id="reserva-destacada">
-                <div id="info-reserva-activa">
-                    <span id="tag-padel">Pádel</span>
+            
+            <article class="reserva-activa">
+                <div class="info-reserva">
+                    <strong>PÁDEL</strong>
                     <h3>Pista 3 - Cristal</h3>
-                    <p>📅 Viernes, 27 de Febrero | 🕒 18:00 - 19:30</p>
+                    <p>Viernes, 27 de Febrero (18:00 - 19:30)</p>
                 </div>
-                <div id="acciones-reserva">
-                    <button id="btn-cancelar-reserva">Cancelar</button>
+                <a href="cancelacion.html">
+                    <button class="btn-cancelar">Cancelar Reserva</button>
+                </a>
+            </article>
+
+            <article class="reserva-activa">
+                <div class="info-reserva">
+                    <strong>TENIS</strong>
+                    <h3>Pista 2 - Tierra Batida</h3>
+                    <p>Lunes, 2 de Marzo (10:00 - 11:30)</p>
                 </div>
+                <a href="cancelacion.html">
+                    <button class="btn-cancelar">Cancelar Reserva</button>
+                </a>
             </article>
         </section>
 
         <section id="historial-reservas">
-            <h2>Historial Reciente</h2>
+            <h2>Historial de Reservas</h2>
             <table id="tabla-historial">
                 <thead>
                     <tr>
@@ -44,18 +72,36 @@
                         <td>20/02/2026</td>
                         <td>Fútbol 7</td>
                         <td>Campo A</td>
-                        <td><span class="estado-jugado">Jugado</span></td>
+                        <td>Jugado</td>
                     </tr>
                     <tr>
                         <td>15/02/2026</td>
                         <td>Tenis</td>
                         <td>Pista 1</td>
-                        <td><span class="estado-jugado">Jugado</span></td>
+                        <td>Jugado</td>
+                    </tr>
+                    <tr>
+                        <td>08/02/2026</td>
+                        <td>Baloncesto</td>
+                        <td>Pabellón</td>
+                        <td>Jugado</td>
+                    </tr>
+                    <tr>
+                        <td>01/02/2026</td>
+                        <td>Tenis</td>
+                        <td>Pista 4</td>
+                        <td>Jugado</td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </section>
 
-    </body>
+    <footer>
+        <div id="caja-footer">
+            <p>📍 Hermanos Rodríguez 102, Rafal | 📞 600 123 456</p>
+            <p id="copyright">&copy; 2026 NovaSport</p>
+        </div>
+    </footer>
+</body>
 </html>
