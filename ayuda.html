@@ -21,6 +21,10 @@
                 <li><a href="ayuda.html">Ayuda</a></li>
             </ul>
         </nav>
+        <div id="iconos-derecha">
+            <img src="imagenes/espana.png" alt="pais" id="bandera">
+            <img src="imagenes/acceso.png" alt="user" id="user">
+        </div>
     </header>
 
     <section id="contenedor-ayuda">
@@ -40,9 +44,9 @@
         <section id="contacto-ayuda">
             <h2>¿Aún necesitas ayuda?</h2>
             <form id="form-ayuda">
-                <input type="text" placeholder="Tu nombre" class="campo-ayuda">
-                <input type="email" placeholder="Tu correo electrónico" class="campo-ayuda">
-                <textarea placeholder="Escribe tu duda..." class="campo-ayuda" rows="5"></textarea>
+                <input type="text" placeholder="Tu nombre" class="campo-ayuda" required>
+                <input type="email" placeholder="Tu correo electrónico" class="campo-ayuda" required>
+                <textarea placeholder="Escribe tu duda..." class="campo-ayuda" rows="5" required></textarea>
                 
                 <a href="mensaje_recibido.html" id="btn-enviar-ayuda">Enviar mensaje</a>
             </form>

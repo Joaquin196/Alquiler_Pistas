@@ -6,11 +6,24 @@
 }
 
 h1 { 
-    color: #375839; text-align: center; 
+    color: #375839; 
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .pregunta { 
-    border-bottom: 1px solid #ddd; padding: 20px 0; 
+    border-bottom: 1px solid #ddd; 
+    padding: 20px 0; 
+}
+
+.pregunta h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pregunta p {
+    color: #666;
+    line-height: 1.6;
 }
 
 #contacto-ayuda {
@@ -19,6 +32,7 @@ h1 {
     margin-top: 40px;
     border: 1px solid #eee;
     text-align: center;
+    border-radius: 8px;
 }
 
 #form-ayuda {
@@ -34,6 +48,7 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 14px;
 }
 
 #btn-enviar-ayuda {
@@ -50,4 +65,32 @@ h1 {
 
 #btn-enviar-ayuda:hover {
     background-color: #2a432b;
+}
+
+@media (max-width: 600px) {
+    #contenedor-ayuda {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #contacto-ayuda {
+        padding: 20px 15px;
+    }
+
+    .pregunta h3 {
+        font-size: 17px;
+    }
+
+    .campo-ayuda {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    #btn-enviar-ayuda {
+        padding: 18px;
+    }
 }
