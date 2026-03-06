@@ -1,3 +1,4 @@
+/* --- ESTILOS GENERALES --- */
 #contenedor-competiciones {
     max-width: 800px;
     margin: 40px auto;
@@ -22,7 +23,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Lista de torneos con articles */
+/* --- LISTA DE TORNEOS --- */
 .item-torneo {
     display: flex;
     justify-content: space-between;
@@ -31,14 +32,19 @@ h2 {
     border-bottom: 1px dashed #eee;
 }
 
+.item-torneo p {
+    margin: 0;
+}
+
 .btn-apuntarse {
     color: #375839;
     font-weight: bold;
     text-decoration: none;
     border: 1px solid #375839;
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-radius: 4px;
     transition: 0.3s;
+    text-align: center;
 }
 
 .btn-apuntarse:hover {
@@ -46,7 +52,7 @@ h2 {
     color: white;
 }
 
-/* Tabla de ranking con ID */
+/* --- TABLA DE RANKING --- */
 #tabla-ranking {
     width: 100%;
     border-collapse: collapse;
@@ -61,4 +67,34 @@ h2 {
 #tabla-ranking th {
     background-color: #f9f9f9;
     color: #333;
+}
+
+@media (max-width: 600px) {
+    #contenedor-competiciones {
+        margin: 20px auto;
+    }
+
+    .item-torneo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .btn-apuntarse {
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+
+    #contenedor-tabla {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #eee;
+    }
+
+    #tabla-ranking {
+        min-width: 450px;
+    }
 }
