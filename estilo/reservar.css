@@ -68,3 +68,54 @@
 .btn-reserva:hover {
     background-color: #2a432b;
 }
+
+/* --- RESPONSIVE CATÁLOGO DE PISTAS --- */
+@media (max-width: 768px) {
+    #catalogo-pistas {
+        margin: 20px auto; /* Menos margen superior en móvil */
+    }
+
+    #titulo-pagina {
+        margin-bottom: 30px;
+    }
+
+    #titulo-pagina h1 {
+        font-size: 28px; /* Título algo más pequeño */
+    }
+
+    #titulo-pagina p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    #grid-reservar {
+        /* Bajamos el mínimo de 280px a 250px para que en móviles pequeños 
+           la tarjeta no se corte lateralmente */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px; /* Reducimos el espacio entre tarjetas */
+    }
+
+    .img-container img {
+        height: 180px; /* Fotos ligeramente más bajas para ahorrar scroll */
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .info-card h3 {
+        font-size: 20px;
+    }
+
+    .btn-reserva {
+        width: 100%; /* El botón ocupa todo el ancho en móvil, es más fácil de pulsar */
+        box-sizing: border-box;
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas (móviles antiguos) */
+@media (max-width: 400px) {
+    #grid-reservar {
+        grid-template-columns: 1fr; /* Una sola columna obligatoria */
+    }
+}

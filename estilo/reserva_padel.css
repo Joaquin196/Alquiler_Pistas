@@ -102,3 +102,46 @@
     color: inherit;
 }
 
+@media (max-width: 768px) {
+    #foto-reserva {
+        height: 350px; 
+    }
+
+    #foto-reserva h2 {
+        font-size: 28px; 
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    #seccion-calendario {
+        padding: 30px 10px; 
+    }
+
+    #calendario-contenedor {
+        padding: 15px; 
+    }
+
+    #calendario-grid {
+        gap: 5px; 
+    }
+
+    .dia-semana {
+        font-size: 11px; 
+    }
+
+    .dia-mes, .dia-mes-x {
+        font-size: 13px; 
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 380px) {
+    #calendario-grid {
+        gap: 3px;
+    }
+    
+    .dia-mes, .dia-mes-x {
+        font-size: 11px;
+    }
+}
+

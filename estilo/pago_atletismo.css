@@ -64,3 +64,39 @@ label {
     text-decoration: none;
     font-size: 14px;
 }
+
+@media (max-width: 600px) {
+    #contenedor-pago {
+        padding: 20px; 
+        min-height: 70vh; 
+    }
+
+    #caja-pago {
+        padding: 20px; 
+        width: 100%;
+    }
+
+    #caja-pago h2 {
+        font-size: 22px;
+    }
+
+    #fila-pago {
+        flex-direction: row; 
+    }
+
+    .campo-pago {
+        font-size: 16px; 
+        padding: 12px; 
+    }
+
+    #btn-pagar {
+        padding: 18px; 
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 500px) {
+    #contenedor-pago {
+        margin: 40px 0; 
+    }
+}
