@@ -15,12 +15,20 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     max-width: 500px;
+    width: 90%; 
+    box-sizing: border-box;
 }
 
 h1 {
     color: #333;
     font-size: 24px;
     font-weight: normal;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
     margin-bottom: 40px;
 }
 
@@ -32,9 +40,31 @@ h1 {
     padding: 12px 30px;
     border-radius: 4px;
     font-size: 14px;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 #boton-inicio:hover {
     background-color: #2a432b;
+}
+
+@media (max-width: 480px) {
+    #contenedor-mensaje {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    #boton-inicio {
+        display: block; 
+        width: 100%;
+        padding: 15px 0;
+        box-sizing: border-box;
+    }
 }

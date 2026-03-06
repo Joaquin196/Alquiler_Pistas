@@ -13,11 +13,12 @@ body {
 }
 
 #login {
-    background-color: white; 
+    background-color: rgba(255, 255, 255, 0.95); 
     width: 400px; 
     padding: 40px; 
     border-radius: 10px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+    box-sizing: border-box;
 }
 
 #login-form {
@@ -37,6 +38,7 @@ h2 {
     color: #333;
     font-size: 22px;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 #texto-registro {
@@ -56,21 +58,20 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 16px; 
 }
 
-/* BOTÓN CORREGIDO (Enlace con forma de botón) */
 #iniciar-sesion {
-    display: block;        /* Ocupa todo el ancho */
+    display: block;        
     width: 100%;
-    padding: 12px 0;       /* Centrado vertical */
+    padding: 12px 0;      
     background-color: #388f33; 
     color: white;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
-    text-align: center;    /* Centrado horizontal */
-    text-decoration: none; /* ELIMINA LA LÍNEA BLANCA */
+    text-align: center;    
+    text-decoration: none; 
     box-sizing: border-box;
     transition: background 0.5s;
     cursor: pointer;
@@ -79,19 +80,41 @@ h2 {
 #iniciar-sesion:hover {
     background-color: #375839;
     color: white;
-    text-decoration: none;
 }
 
-/* Enlaces secundarios corregidos */
 .link-secundario {
     font-size: 14px;
     color: gray;
     text-decoration: none;
     margin-top: 5px;
+    text-align: center;
 }
 
 .link-secundario:hover {
     text-decoration: underline;
     color: #388f33;
+}
+
+@media (max-width: 450px) {
+    #login {
+        width: 90%; 
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .campos {
+        padding: 14px; 
+    }
+
+    #logo {
+        width: 120px;
+    }
+
+    #texto-registro {
+        font-size: 14px;
+    }
 }
 
