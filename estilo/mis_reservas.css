@@ -1,4 +1,4 @@
-/* Contenedor principal */
+/* --- ESTILOS GENERALES --- */
 #contenedor-reservas {
     max-width: 800px;
     margin: 30px auto;
@@ -18,7 +18,7 @@ h2 {
     margin-top: 40px;
 }
 
-/* Tarjetas de reserva activa */
+/* --- TARJETAS DE RESERVA ACTIVA --- */
 .reserva-activa {
     border: 1px solid #ccc;
     padding: 20px;
@@ -27,6 +27,7 @@ h2 {
     align-items: center;
     background-color: #f9f9f9;
     margin-bottom: 15px;
+    border-radius: 8px;
 }
 
 .info-reserva strong {
@@ -45,13 +46,15 @@ h2 {
     padding: 10px 15px;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s;
 }
 
 .btn-cancelar:hover {
     background-color: #a35252;
 }
 
-/* Tabla de historial */
+/* --- TABLA DE HISTORIAL --- */
 #tabla-historial {
     width: 100%;
     border-collapse: collapse;
@@ -71,4 +74,41 @@ h2 {
 
 #tabla-historial tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    #contenedor-reservas {
+        padding: 10px;
+    }
+
+    .reserva-activa {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .info-reserva p {
+        font-size: 14px;
+    }
+
+    .btn-cancelar {
+        width: 100%; 
+        padding: 15px;
+    }
+
+    .contenedor-tabla {
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    #tabla-historial {
+        min-width: 600px; 
+    }
+
+    #tabla-historial th, #tabla-historial td {
+        padding: 8px;
+        font-size: 13px;
+    }
 }
