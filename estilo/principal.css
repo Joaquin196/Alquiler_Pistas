@@ -203,40 +203,38 @@
     filter: grayscale(20%);  
 }
 
-/* --- AJUSTES RESPONSIVE PRINCIPAL --- */
 @media (max-width: 850px) {
     #bienvenida {
-        height: 400px; /* Reducimos la altura en móvil para que no sea infinita */
+        height: 400px; 
     }
 
     #bienvenida h2 {
-        font-size: 32px; /* Texto más pequeño para que no se corte */
+        font-size: 32px; 
         text-align: center;
         width: 90%;
     }
 
-    /* Arreglo de la sección de contacto que se ve mal en tu foto */
     #caja-contacto-info {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centra los iconos y el texto */
+        align-items: center; 
         width: 100%;
     }
 
     .dato-contacto {
-        justify-content: center; /* Asegura que el contenido interno esté centrado */
+        justify-content: center; 
         width: 100%;
         font-size: 16px;
     }
 
-    /* Las promociones pasan a ser una sola columna */
+
     #comp-contenido, #prom-contenido {
         flex-direction: column;
         gap: 30px;
     }
 
     #prom-contenido {
-        flex-direction: column-reverse; /* Imagen siempre arriba del texto */
+        flex-direction: column-reverse; 
     }
 
     .contenedor-img-promo {
