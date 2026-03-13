@@ -16,15 +16,23 @@
 }
 
 #caja-pago h2 { 
-    color: #375839; margin-bottom: 20px; text-align: center; 
+    color: #375839; 
+    margin-bottom: 20px; 
+    text-align: center; 
 }
 
 #resumen-pista { 
-    margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px; 
 }
 
 label { 
-    display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #555; 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    font-size: 14px; 
+    color: #555; 
 }
 
 .campo-pago {
@@ -33,15 +41,16 @@ label {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
+    box-sizing: border-box; /*Evita que el tamaño de la caja aumente al añadir padding o bordes*/
 }
 
 #fila-pago { 
-    display: flex; gap: 10px; 
+    display: flex; 
+    gap: 10px; 
 }
 
 #btn-pagar {
-    display: block;
+    display: block; /*Hace que el botón ocupe todo el ancho disponible*/
     background-color: #388f33;
     color: white;
     text-align: center;

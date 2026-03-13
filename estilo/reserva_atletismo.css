@@ -40,8 +40,8 @@
 }
 
 #calendario-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); 
+    display: grid; /* Cambiado a grid para una mejor estructura de calendario */
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas para los días de la semana, fr es una unidad de medida para tablas (fraccion de espacio disponible) */
     gap: 10px;
 }
 
@@ -50,12 +50,12 @@
     color: #777;
     text-align: center;
     padding: 10px 0;
-    text-transform: uppercase;
+    text-transform: uppercase; 
     font-size: 14px;
 }
 
 .dia-mes {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1;  /* Mantiene una proporción de 1:1 para que los días sean cuadrados */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,9 +97,9 @@
 }
 
 #calendario-contenedor a {
-    display: block;
+    display: block; /* Asegura que todo el día sea clicable */
     text-decoration: none;
-    color: inherit;
+    color: inherit; /* El texto hereda el color del día, evitando el azul predeterminado de los enlaces */
 }
 
 @media (max-width: 768px) {

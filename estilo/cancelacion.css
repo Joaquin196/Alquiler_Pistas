@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; 
+    min-height: 100vh; /*vh es adaptable y responsive*/
     margin: 0;
     background-color: #f9f9f9;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,7 +16,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     max-width: 500px;
     width: 90%; 
-    box-sizing: border-box; 
+    box-sizing: border-box; /*Evita que el tamaño de la caja aumente al añadir padding o bordes*/
 }
 
 h1 {
@@ -24,11 +24,11 @@ h1 {
     font-size: 24px;
     font-weight: normal;
     margin-bottom: 40px;
-    line-height: 1.3;
+    line-height: 1.3; /*define la altura de la caja de línea de un elemento*/
 }
 
 #boton-inicio {
-    display: inline-block;
+    display: inline-block; /* para que ocupe todo el ancho disponible y comience en una nueva línea*/
     text-decoration: none;
     background-color: #375839;
     color: white;

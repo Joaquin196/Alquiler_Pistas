@@ -16,7 +16,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     max-width: 500px;
     width: 90%; 
-    box-sizing: border-box;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total del contenedor */
 }
 
 h1 {
@@ -33,7 +33,7 @@ p {
 }
 
 #boton-inicio {
-    display: inline-block;
+    display: inline-block; /* Cambiado a inline-block para permitir padding y centrado */
     text-decoration: none;
     background-color: #375839;
     color: white;

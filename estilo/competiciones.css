@@ -1,8 +1,7 @@
-/* --- ESTILOS GENERALES --- */
 #contenedor-competiciones {
     max-width: 800px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 20px; /*0 px arriba y abajo y 20 px a los lados*/
     font-family: sans-serif;
 }
 
@@ -18,18 +17,17 @@ h1 {
 
 h2 {
     font-size: 20px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /*línea continua*/
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-/* --- LISTA DE TORNEOS --- */
 .item-torneo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed #eee; /*línea discontinua*/
 }
 
 .item-torneo p {
@@ -52,10 +50,9 @@ h2 {
     color: white;
 }
 
-/* --- TABLA DE RANKING --- */
 #tabla-ranking {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /*Elimina el espacio entre las celdas de la tabla*/
 }
 
 #tabla-ranking th, #tabla-ranking td {
