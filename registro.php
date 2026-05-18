@@ -8,7 +8,7 @@
 </head>
 <body id="fondo-registro">
     <div id="login">
-        <form id="login-form">
+        <form id="login-form" action="procesar_registro.php" method="POST">
             <img src="imagenes/logo-transparent-png.png" alt="Escudo del polideportivo" id="logo">
             <h2>Crea tu nueva cuenta</h2>
 
@@ -28,7 +28,7 @@
                 <input type="password" name="confirmar_contraseña" class="campos" placeholder="Confirmar contraseña" required>
             </div>
             
-            <a href="logeo.html" id="iniciar-sesion">Crear cuenta</a>
+            <button type="submit" id="iniciar-sesion">Crear cuenta</button>
             
             <a href="rec_contraseña.html" class="link-secundario">¿Ha olvidado su contraseña?</a>
             <a href="logeo.html" class="link-secundario">¿Ya tienes una cuenta? Inicia sesión</a>
