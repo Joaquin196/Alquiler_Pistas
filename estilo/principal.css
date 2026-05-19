@@ -242,3 +242,16 @@
         flex: none;
     }
 }
+
+.user-welcome {
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Ajusta el tamaño de la imagen de logout */
+.btn-logout img {
+    width: 25px;          /* Cambia este número para igualarlo al de usuario */
+    height: auto;         /* Mantiene la proporción para que no se deforme */
+    vertical-align: middle; /* Lo alinea verticalmente con el texto "Hola, ..." */
+}

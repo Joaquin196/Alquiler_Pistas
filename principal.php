@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,11 +14,11 @@
 <body>
     <header>
         <div>
-            <a href="principal.html"><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
+            <a href="principal.php"><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="principal.php">Inicio</a></li>
                 <li><a href="reservar.html">Reservar pistas</a></li>
                 <li><a href="mis_reservas.html">Mis reservas</a></li>
                 <li><a href="competiciones.html">Competiciones</a></li>
@@ -23,9 +27,25 @@
         </nav>
         <div id="iconos-derecha">
             <img src="imagenes/espana.png" alt="pais" id="bandera">
-            <a href="registro.html">
-                <img src="imagenes/acceso.png" alt="user" id="user">
-            </a>
+
+            
+            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+                <span class="user-welcome">
+                    Hola, <?php echo $_SESSION['usuario_nombre']; ?>
+                </span>
+                <a href="cerrar_sesion.php" class="btn-logout">
+                    <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
+                </a>
+            
+            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+                <a href="registro.php">
+                    <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
+                </a>
+            <?php endif; ?>
+
+            
+            
+            
         </div>
     </header>
 

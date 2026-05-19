@@ -31,7 +31,7 @@
             <button type="submit" id="iniciar-sesion">Crear cuenta</button>
             
             <a href="rec_contraseña.html" class="link-secundario">¿Ha olvidado su contraseña?</a>
-            <a href="logeo.html" class="link-secundario">¿Ya tienes una cuenta? Inicia sesión</a>
+            <a href="logeo.php" class="link-secundario">¿Ya tienes una cuenta? Inicia sesión</a>
         </form>
     </div>
 </body>
