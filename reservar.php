@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Pádel</h3>
                     <p>8 pistas de cristal de última generación.</p>
-                    <a href="reserva_padel.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_padel.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Tenis</h3>
                     <p>Pistas de tierra batida y resina rápida.</p>
-                    <a href="reserva_tenis.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_tenis.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Fútbol 7</h3>
                     <p>Césped artificial de alta calidad y focos LED.</p>
-                    <a href="reserva_futbol.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_futbol.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
 
@@ -104,7 +104,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Baloncesto</h3>
                     <p>Cancha cubierta con parqué profesional.</p>
-                    <a href="reserva_baloncesto.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_baloncesto.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
 
@@ -115,7 +115,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Balonmano</h3>
                     <p>Cancha cubierta con parqué profesional.</p>
-                    <a href="reserva_balonmano.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_balonmano.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
 
@@ -126,7 +126,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="info-card">
                     <h3>Atletismo</h3>
                     <p>Pista de atletismo con superficie de goma y sistema de iluminación LED.</p>
-                    <a href="reserva_atletismo.html" class="btn-reserva">Seleccionar</a>
+                    <a href="reserva_atletismo.php" class="btn-reserva">Seleccionar</a>
                 </div>
             </div>
         </div>
