@@ -10,15 +10,16 @@
 <body>
     <header>
         <div>
-            <a href="principal.html"><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
+            <a href="principal.php
+            "><img src="imagenes/logo-transparent-png.png" alt="img" id="logo"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="principal.html">Inicio</a></li>
-                <li><a href="reservar.html">Reservar pistas</a></li>
-                <li><a href="mis_reservas.html">Mis reservas</a></li>
-                <li><a href="competiciones.html">Competiciones</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="principal.php">Inicio</a></li>
+                <li><a href="reservar.php">Reservar pistas</a></li>
+                <li><a href="mis_reservas.php">Mis reservas</a></li>
+                <li><a href="competiciones.php">Competiciones</a></li>
+                <li><a href="ayuda.php">Ayuda</a></li>
             </ul>
         </nav>
         <div id="iconos-derecha">
