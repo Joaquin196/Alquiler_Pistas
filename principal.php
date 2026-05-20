@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
+/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+if (!isset($_SESSION['usuario_nombre'])) {
+    header("Location: logeo.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +26,10 @@ session_start();
         <nav>
             <ul>
                 <li><a href="principal.php">Inicio</a></li>
-                <li><a href="reservar.html">Reservar pistas</a></li>
-                <li><a href="mis_reservas.html">Mis reservas</a></li>
-                <li><a href="competiciones.html">Competiciones</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="reservar.php">Reservar pistas</a></li>
+                <li><a href="mis_reservas.php">Mis reservas</a></li>
+                <li><a href="competiciones.php">Competiciones</a></li>
+                <li><a href="ayuda.php">Ayuda</a></li>
             </ul>
         </nav>
         <div id="iconos-derecha">
@@ -84,7 +91,7 @@ session_start();
 
         <div id="ver-mas-pistas">
             <p>¿Buscas otras instalaciones o servicios adicionales?</p>
-            <a href="reservar.html" id="boton-explorar">Explorar todas las pistas</a>
+            <a href="reservar.php" id="boton-explorar">Explorar todas las pistas</a>
         </div>
     </section>
 
@@ -158,10 +165,10 @@ session_start();
     <footer>
         <div id="caja-footer">
             <div id="footer-nav">
-                <a href="reservar.html">Reservar pistas</a>
-                <a href="mis_reservas.html">Mis reservas</a>
-                <a href="competiciones.html">Competiciones</a>
-                <a href="ayuda.html">Ayuda</a>
+                <a href="reservar.php">Reservar pistas</a>
+                <a href="mis_reservas.php">Mis reservas</a>
+                <a href="competiciones.php">Competiciones</a>
+                <a href="ayuda.php">Ayuda</a>
             </div>
             <p id="copyright">&copy; 2026 NovaSport - Todos los derechos reservados</p>
         </div>

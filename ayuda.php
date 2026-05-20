@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
+/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+if (!isset($_SESSION['usuario_nombre'])) {
+    header("Location: logeo.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,15 +26,34 @@
         <nav>
             <ul>
                 <li><a href="principal.php">Inicio</a></li>
-                <li><a href="reservar.html">Reservar pistas</a></li>
-                <li><a href="mis_reservas.html">Mis reservas</a></li>
-                <li><a href="competiciones.html">Competiciones</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="reservar.php">Reservar pistas</a></li>
+                <li><a href="mis_reservas.php">Mis reservas</a></li>
+                <li><a href="competiciones.php">Competiciones</a></li>
+                <li><a href="ayuda.php">Ayuda</a></li>
             </ul>
         </nav>
+        
         <div id="iconos-derecha">
             <img src="imagenes/espana.png" alt="pais" id="bandera">
-            <img src="imagenes/acceso.png" alt="user" id="user">
+
+            
+            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+                <span class="user-welcome">
+                    Hola, <?php echo $_SESSION['usuario_nombre']; ?>
+                </span>
+                <a href="cerrar_sesion.php" class="btn-logout">
+                    <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
+                </a>
+            
+            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+                <a href="registro.php">
+                    <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
+                </a>
+            <?php endif; ?>
+
+            
+            
+            
         </div>
     </header>
 
@@ -56,10 +86,10 @@
     <footer>
         <div id="caja-footer">
             <div id="footer-nav">
-                <a href="reservar.html">Reservar pistas</a>
-                <a href="mis_reservas.html">Mis reservas</a>
-                <a href="competiciones.html">Competiciones</a>
-                <a href="ayuda.html">Ayuda</a>
+                <a href="reservar.php">Reservar pistas</a>
+                <a href="mis_reservas.php">Mis reservas</a>
+                <a href="competiciones.php">Competiciones</a>
+                <a href="ayuda.php">Ayuda</a>
             </div>
             <p id="copyright">&copy; 2026 NovaSport - Todos los derechos reservados</p>
         </div>

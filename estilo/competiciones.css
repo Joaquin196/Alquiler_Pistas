@@ -95,3 +95,9 @@ h2 {
         min-width: 450px;
     }
 }
+
+.user-welcome {
+    color: white;
+    font-weight: bold; /* O el estilo exacto que le tengas puesto en principal.css */
+    margin-right: 15px;
+}
