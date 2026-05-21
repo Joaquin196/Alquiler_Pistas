@@ -41,15 +41,32 @@ label {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /*Evita que el tamaño de la caja aumente al añadir padding o bordes*/
+    box-sizing: border-box;
 }
 
 #fila-pago { 
-    display: flex; gap: 10px; 
+    display: flex; 
+    gap: 10px; 
 }
 
+/* Estilos dinámicos del bloque de información de la sesión */
+#info-resumen {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#info-resumen p {
+    margin: 5px 0;
+    font-weight: normal !important;
+    color: #333;
+}
+
+/* Estilo unificado para el botón de pago */
 #btn-pagar {
-    display: block; /*Hace que el botón ocupe todo el ancho disponible*/
+    display: block; 
     background-color: #388f33;
     color: white;
     text-align: center;
@@ -58,6 +75,11 @@ label {
     font-weight: bold;
     border-radius: 5px;
     margin-top: 10px;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #btn-pagar:hover { 
@@ -73,6 +95,13 @@ label {
     font-size: 14px;
 }
 
+.user-welcome {
+    color: white !important;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Media Queries para diseño adaptativo */
 @media (max-width: 600px) {
     #contenedor-pago {
         padding: 20px; 

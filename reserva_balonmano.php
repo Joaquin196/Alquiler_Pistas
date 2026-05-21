@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
+/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+if (!isset($_SESSION['usuario_nombre'])) {
+    header("Location: logeo.php");
+    exit();
+}
+
+/*En este caso, nos conectamos a la base de datos, ya que realizaremos consultas (SELECT, INSERT, UPDATE, DELETE)*/
+$conexion = mysqli_connect("localhost", "root", "", "novasport");
+
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,82 +41,75 @@
         </nav>
         <div id="iconos-derecha">
             <img src="imagenes/espana.png" alt="pais" id="bandera">
-            <img src="imagenes/acceso.png" alt="user" id="user">
+
+            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+                <span class="user-welcome">
+                    Hola, <?php echo $_SESSION['usuario_nombre']; ?>
+                </span>
+                <a href="cerrar_sesion.php" class="btn-logout">
+                    <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
+                </a>
+            
+            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+                <a href="registro.php">
+                    <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
+                </a>
+            <?php endif; ?>
         </div>
     </header>
     <section id="foto-reserva">
         <h2>Reserva tu pista de balonmano</h2>
     </section>
 
-    <section id="seccion-calendario">
-        <div id="calendario-contenedor">
-            <div id="calendario-header">
-                <h3>Febrero 2026</h3>
-            </div>
-            <a href="pago_balonmano.html">
-                <div id="calendario-grid">
-                    <div class="dia-semana">Lun</div>
-                    <div class="dia-semana">Mar</div>
-                    <div class="dia-semana">Mié</div>
-                    <div class="dia-semana">Jue</div>
-                    <div class="dia-semana">Vie</div>
-                    <div class="dia-semana">Sáb</div>
-                    <div class="dia-semana">Dom</div>
+    <section id="seccion-formulario">
+        <div id="formulario-contenedor">
+            <h3>Selecciona los detalles de tu partido</h3>
+            
+            <form action="procesar_reserva.php" method="POST">
+                <input type="hidden" name="deporte" value="Balonmano">
 
-                    <div class="dia-vacio"></div> 
-                    <div class="dia-vacio"></div>
-                    <div class="dia-vacio"></div>
-                    <div class="dia-vacio"></div>
-                    <div class="dia-vacio"></div>
-                    <div class="dia-vacio"></div>
-
-                    <div class="dia-mes">1</div>
-
-                    <div class="dia-mes-x">2</div>
-                    <div class="dia-mes">3</div>
-                    <div class="dia-mes">4</div>
-                    <div class="dia-mes">5</div>
-                    <div class="dia-mes">6</div>
-                    <div class="dia-mes">7</div>
-                    <div class="dia-mes-x">8</div>
-
-                    <div class="dia-mes">9</div> 
-                    <div class="dia-mes-x">10</div>
-                    <div class="dia-mes">11</div>
-                    <div class="dia-mes">12</div>
-                    <div class="dia-mes">13</div>
-                    <div class="dia-mes">14</div>
-                    <div class="dia-mes">15</div>
-
-                    <div class="dia-mes">16</div>
-                    <div class="dia-mes">17</div>
-                    <div class="dia-mes">18</div>
-                    <div class="dia-mes">19</div>
-                    <div class="dia-mes">20</div>
-                    <div class="dia-mes">21</div>
-                    <div class="dia-mes-x">22</div>
-
-                    <div class="dia-mes">23</div>
-                    <div class="dia-mes">24</div>
-                    <div class="dia-mes">25</div>
-                    <div class="dia-mes-x">26</div>
-                    <div class="dia-mes">27</div>
-                    <div class="dia-mes">28</div>
+                <div class="inputs">
+                    <label for="fecha">¿Qué día quieres jugar?</label>
+                    <?php /*echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual */?>
+                    <input type="date" id="fecha" name="fecha" required min="<?php echo date('Y-m-d'); ?>">
                 </div>
 
-            </a>
+                <div class="inputs">
+                    <label for="hora">Selecciona la hora</label>
+                    <select id="hora" name="hora" required>
+                        <option value="" disabled selected>Elige un horario</option>
+                        <option value="09:00:00">09:00 - 10:30</option>
+                        <option value="10:30:00">10:30 - 12:00</option>
+                        <option value="12:00:00">12:00 - 13:30</option>
+                        <option value="16:30:00">16:30 - 18:00</option>
+                        <option value="18:00:00">18:00 - 19:30</option>
+                        <option value="19:30:00">19:30 - 21:00</option>
+                        <option value="21:00:00">21:00 - 22:30</option>
+                    </select>
+                </div>
+
+                <div class="inputs">
+                    <label for="numero_pista">Selecciona la pista</label>
+                    <select id="numero_pista" name="numero_pista" required>
+                        <option value="" disabled selected>Elige una pista</option>
+                        <option value="1">Pista 1 (Pabellón Central)</option>
+                        <option value="2">Pista 2 (Pabellón Anexo)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-confirmar">Confirmar y Reservar</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <div id="caja-footer">
             <div id="footer-nav">
-                <a href="">Reservar pistas</a>
-                <a href="">Mis reservas</a>
-                <a href="">Competiciones</a>
-                <a href="">Ayuda</a>
+                <a href="reservar.php">Reservar pistas</a>
+                <a href="mis_reservas.php">Mis reservas</a>
+                <a href="competiciones.php">Competiciones</a>
+                <a href="ayuda.php">Ayuda</a>
             </div>
-            
             <p id="copyright">&copy; 2026 NovaSport - Todos los derechos reservados</p>
         </div>
     </footer>

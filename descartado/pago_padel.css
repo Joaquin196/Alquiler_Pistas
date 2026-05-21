@@ -1,0 +1,145 @@
+#contenedor-pago {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f4f4f4;
+}
+
+#caja-pago {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+#caja-pago h2 { 
+    color: #375839; 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+#resumen-pista { 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    font-size: 14px; 
+    color: #555; 
+}
+
+.campo-pago {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /*Evita que el tamaño de la caja aumente al añadir padding o bordes*/
+}
+
+#fila-pago { 
+    display: flex; gap: 10px; 
+}
+
+#btn-pagar {
+    display: block; /*Hace que el botón ocupe todo el ancho disponible*/
+    background-color: #388f33;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#btn-pagar:hover { 
+    background-color: #375839; 
+}
+
+#btn-cancelar-pago {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    #contenedor-pago {
+        padding: 20px; 
+        min-height: 70vh; 
+    }
+
+    #caja-pago {
+        padding: 20px; 
+        width: 100%;
+    }
+
+    #caja-pago h2 {
+        font-size: 22px;
+    }
+
+    #fila-pago {
+        flex-direction: row; 
+    }
+
+    .campo-pago {
+        font-size: 16px; 
+        padding: 12px; 
+    }
+
+    #btn-pagar {
+        padding: 18px; 
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 500px) {
+    #contenedor-pago {
+        margin: 40px 0; 
+    }
+}
+
+.user-welcome {
+    color: white !important;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+#info-resumen {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#info-resumen p {
+    margin: 5px 0;
+}
+
+#btn-pagar {
+    display: block; 
+    background-color: #388f33;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}

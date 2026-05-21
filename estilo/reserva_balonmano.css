@@ -1,5 +1,11 @@
-#foto-reserva{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) ,url('../imagenes/reserva_balonmano.jpg');
+.user-welcome {
+    color: white !important;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+#foto-reserva {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../imagenes/reserva_balonmano.jpg');
     width: 100%;
     height: 600px;
     background-size: cover;
@@ -16,90 +22,73 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-#seccion-calendario {
+#seccion-formulario {
     padding: 60px 20px;
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
 }
 
-#calendario-contenedor {
+#formulario-contenedor {
     background-color: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
 }
 
-#calendario-header h3 {
+#formulario-contenedor h3 {
     text-align: center;
     color: #375839;
     font-size: 24px;
     margin-bottom: 30px;
 }
 
-#calendario-grid {
-    display: grid; /* Cambiado a grid para una mejor estructura de calendario */
-    grid-template-columns: repeat(7, 1fr); /* 7 columnas para los días de la semana, fr es una unidad de medida para tablas (fraccion de espacio disponible) */
-    gap: 10px;
+.inputs {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
 }
 
-.dia-semana {
+.inputs label {
     font-weight: bold;
-    color: #777;
-    text-align: center;
-    padding: 10px 0;
-    text-transform: uppercase;
-    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-.dia-mes {
-    aspect-ratio: 1 / 1; /* Mantiene una proporción de 1:1 para que los días sean cuadrados */ 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #eee;
+.inputs input, .inputs select {
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.dia-mes-x {
-    aspect-ratio: 1 / 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background-color: #c66666;
-    color: #eee;
-    cursor: not-allowed;
+.inputs input:focus, .inputs select:focus {
+    border-color: #375839;
+    outline: none;
 }
 
-.dia-mes:hover {
+.btn-confirmar {
     background-color: #375839;
     color: white;
-    border-color: #375839;
-}
-
-.dia-mes-x:hover {
-    background-color: #c66666;
-    color: #aaa;
-    border-color: #c66666;
-}
-
-.dia-vacio {
     border: none;
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
 }
 
-#calendario-contenedor a {
-    display: block; /* Asegura que el enlace ocupe todo el espacio del día para facilitar el clic */
-    text-decoration: none;
-    color: inherit; /* El texto hereda el color del contenedor, evitando el azul predeterminado de los enlaces */
+.btn-confirmar:hover {
+    background-color: #273e28;
 }
 
 @media (max-width: 768px) {
@@ -113,34 +102,11 @@
         text-align: center;
     }
 
-    #seccion-calendario {
+    #seccion-formulario {
         padding: 30px 10px; 
     }
 
-    #calendario-contenedor {
-        padding: 15px; 
-    }
-
-    #calendario-grid {
-        gap: 5px; 
-    }
-
-    .dia-semana {
-        font-size: 11px; 
-    }
-
-    .dia-mes, .dia-mes-x {
-        font-size: 13px; 
-        border-radius: 5px;
-    }
-}
-
-@media (max-width: 380px) {
-    #calendario-grid {
-        gap: 3px;
-    }
-    
-    .dia-mes, .dia-mes-x {
-        font-size: 11px;
+    #formulario-contenedor {
+        padding: 20px; 
     }
 }
