@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Control de seguridad: si intentan entrar aquí directos sin loguearse, al login
+if (!isset($_SESSION['usuario_nombre'])) {
+    header("Location: logeo.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +18,7 @@
 <body>
     <div id="contenedor-mensaje">
         <h1>La pista ha sido reservada correctamente</h1>
-        <a href="principal.html" id="boton-inicio">Volver al inicio</a>
+        <a href="principal.php" id="boton-inicio">Volver al inicio</a>
     </div>
 </body>
 </html>

@@ -63,7 +63,7 @@ $volver_a = $_SESSION['pagina_origen'] ?? 'reservar.php';
                 <p>Hora: <?php echo substr($_SESSION['reserva_hora'], 0, 5); ?> hs</p>
             </div>
             
-            <form id="form-pago" action="confirmar_pago.php" method="POST">
+            <form id="form-pago" action="reservada.php" method="POST">
                 <label for="titular">Nombre del titular</label>
                 <input type="text" id="titular" placeholder="Nombre completo" class="campo-pago" required>
 
