@@ -7,6 +7,31 @@ if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
 }
+
+// Conexión a la base de datos
+$conexion = mysqli_connect("localhost", "root", "", "novasport");
+
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+$usuario_nombre = $_SESSION['usuario_nombre'];
+
+// Consulta para las próximas citas (fechas desde hoy en adelante) cruzando con la tabla usuarios
+$consulta_activas = "SELECT r.id_reserva, r.deporte, r.numero_pista, r.fecha, r.hora 
+                     FROM reservas r 
+                     INNER JOIN usuarios u ON r.id_usuario = u.id 
+                     WHERE u.nombre = '$usuario_nombre' AND r.fecha >= CURDATE() 
+                     ORDER BY r.fecha ASC, r.hora ASC";
+$resultado_activas = mysqli_query($conexion, $consulta_activas);
+
+// Consulta para el historial de reservas (fechas anteriores a hoy) cruzando con la tabla usuarios
+$consulta_historial = "SELECT r.deporte, r.numero_pista, r.fecha, r.hora 
+                       FROM reservas r 
+                       INNER JOIN usuarios u ON r.id_usuario = u.id 
+                       WHERE u.nombre = '$usuario_nombre' AND r.fecha < CURDATE() 
+                       ORDER BY r.fecha DESC, r.hora DESC";
+$resultado_historial = mysqli_query($conexion, $consulta_historial);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +61,6 @@ if (!isset($_SESSION['usuario_nombre'])) {
         <div id="iconos-derecha">
             <img src="imagenes/espana.png" alt="pais" id="bandera">
 
-            
             <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
                 <span class="user-welcome">
                     Hola, <?php echo $_SESSION['usuario_nombre']; ?>
@@ -50,10 +74,6 @@ if (!isset($_SESSION['usuario_nombre'])) {
                     <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
                 </a>
             <?php endif; ?>
-
-            
-            
-            
         </div>
     </header>
 
@@ -62,28 +82,26 @@ if (!isset($_SESSION['usuario_nombre'])) {
 
         <section id="proximas-citas">
             <h2>Próximas Citas</h2>
-            
-            <article class="reserva-activa">
-                <div class="info-reserva">
-                    <strong>PÁDEL</strong>
-                    <h3>Pista 3 - Cristal</h3>
-                    <p>Viernes, 27 de Febrero (18:00 - 19:30)</p>
-                </div>
-                <a href="cancelacion.html">
-                    <button class="btn-cancelar">Cancelar Reserva</button>
-                </a>
-            </article>
 
-            <article class="reserva-activa">
-                <div class="info-reserva">
-                    <strong>TENIS</strong>
-                    <h3>Pista 2 - Tierra Batida</h3>
-                    <p>Lunes, 2 de Marzo (10:00 - 11:30)</p>
-                </div>
-                <a href="cancelacion.html">
-                    <button class="btn-cancelar">Cancelar Reserva</button>
-                </a>
-            </article>
+            <?php /* Si el número de filas del resultado de la consulta de próximas citas es mayor que 0, se mostrarán las reservas activas. */ ?>
+            <?php /* Si no, se mostrará un mensaje indicando que no hay próximas citas reservadas. */ ?>
+            <?php if (mysqli_num_rows($resultado_activas) > 0): ?>
+                <?php while ($reserva = mysqli_fetch_assoc($resultado_activas)): ?>
+                    <article class="reserva-activa">
+                        <div class="info-reserva">
+                            <strong><?php echo strtoupper($reserva['deporte']); ?></strong>
+                            <h3>Pista / Campo <?php echo $reserva['numero_pista']; ?></h3>
+                            <p><?php echo $reserva['fecha']; ?> (<?php echo $reserva['hora']; ?>)</p>
+                        </div>
+                        <form action="cancelacion.php" method="POST">
+                            <input type="hidden" name="id_reserva" value="<?php echo $reserva['id_reserva']; ?>">
+                            <button type="submit" class="btn-cancelar">Cancelar Reserva</button>
+                        </form>
+                    </article>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p class="sin-reservas">No tienes próximas citas reservadas en este momento.</p>
+            <?php endif; ?>
         </section>
 
         <section id="historial-reservas">
@@ -93,36 +111,30 @@ if (!isset($_SESSION['usuario_nombre'])) {
                     <thead>
                         <tr>
                             <th>Fecha</th>
+                            <th>Hora</th>
                             <th>Deporte</th>
                             <th>Pista</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>20/02/2026</td>
-                            <td>Fútbol 7</td>
-                            <td>Campo A</td>
-                            <td>Jugado</td>
-                        </tr>
-                        <tr>
-                            <td>15/02/2026</td>
-                            <td>Tenis</td>
-                            <td>Pista 1</td>
-                            <td>Jugado</td>
-                        </tr>
-                        <tr>
-                            <td>08/02/2026</td>
-                            <td>Baloncesto</td>
-                            <td>Pabellón</td>
-                            <td>Jugado</td>
-                        </tr>
-                        <tr>
-                            <td>01/02/2026</td>
-                            <td>Tenis</td>
-                            <td>Pista 4</td>
-                            <td>Jugado</td>
-                        </tr>
+                        <?php /* Si el número de filas del resultado de la consulta del historial de reservas es mayor que 0, se mostrarán las reservas anteriores. */ ?>
+                        <?php /* Si no, se mostrará un mensaje indicando que no hay reservas anteriores en el historial */ ?>
+                        <?php if (mysqli_num_rows($resultado_historial) > 0): ?>
+                            <?php while ($historial = mysqli_fetch_assoc($resultado_historial)): ?>
+                                <tr>
+                                    <td><?php echo $historial['fecha']; ?></td>
+                                    <td><?php echo $historial['hora']; ?></td>
+                                    <td><?php echo $historial['deporte']; ?></td>
+                                    <td>Pista / Campo <?php echo $historial['numero_pista']; ?></td>
+                                    <td class="estado-jugado">Jugado</td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5" class="historial-vacio">No hay reservas anteriores en tu historial.</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -142,3 +154,4 @@ if (!isset($_SESSION['usuario_nombre'])) {
     </footer>
 </body>
 </html>
+<?php mysqli_close($conexion); ?>

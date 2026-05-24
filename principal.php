@@ -63,25 +63,25 @@ if (!isset($_SESSION['usuario_nombre'])) {
     <section id="tipos-pistas">
         <h2>Reserva tu pista</h2>
         <div id="conjunto-pistas">
-            <a href="reserva_padel.html">
+            <a href="reserva_padel.php">
                 <div class="pista-caja">
                     <div class="pista-titulo">Pádel</div>
                     <img src="imagenes/pista_padel.jpg" alt="vertical_padel">
                 </div>
             </a>
-            <a href="reserva_tenis.html">
+            <a href="reserva_tenis.php">
                 <div class="pista-caja">
                     <div class="pista-titulo">Tenis</div>
                     <img src="imagenes/pista_tenis.jpg" alt="vertical_tenis">
                 </div>
             </a>
-            <a href="reserva_futbol.html">
+            <a href="reserva_futbol.php">
                 <div class="pista-caja">
                     <div class="pista-titulo">Fútbol</div>
                     <img src="imagenes/pista_futbol.jpg" alt="vertical_futbol">
                 </div>
             </a>
-            <a href="reserva_baloncesto.html">
+            <a href="reserva_baloncesto.php">
                 <div class="pista-caja">
                     <div class="pista-titulo">Baloncesto</div>
                     <img src="imagenes/pista_basket.jpg" alt="vertical_baloncesto">

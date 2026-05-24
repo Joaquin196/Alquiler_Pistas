@@ -112,6 +112,10 @@ h2 {
 
 .user-welcome {
     color: white;
-    font-weight: bold; /* O el estilo exacto que le tengas puesto en principal.css */
+    font-weight: bold; 
     margin-right: 15px;
+}
+
+.historial-vacio {
+    text-align: center;
 }
