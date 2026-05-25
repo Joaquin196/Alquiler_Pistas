@@ -21,7 +21,7 @@ if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-// Averiguamos el id del usuario usando el nombre que tenemos en la sesión
+// Avariguamos el id del usuario usando el nombre que tenemos en la sesión
 $usuario_nombre = $_SESSION['usuario_nombre'];
 $consulta_user = "SELECT id FROM usuarios WHERE nombre = '$usuario_nombre'";
 $resultado_user = mysqli_query($conexion, $consulta_user);

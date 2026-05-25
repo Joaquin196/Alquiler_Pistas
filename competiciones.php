@@ -7,6 +7,24 @@ if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
 }
+
+// Conexión a la base de datos
+$conexion = mysqli_connect("localhost", "root", "", "novasport");
+
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+// Conseguimos el ID numérico del usuario actual usando su nombre de sesión
+$usuario_nombre = $_SESSION['usuario_nombre'];
+$consulta_user = "SELECT id FROM usuarios WHERE nombre = '$usuario_nombre'";
+$resultado_user = mysqli_query($conexion, $consulta_user);
+$datos_usuario = mysqli_fetch_assoc($resultado_user);
+$id_usuario = $datos_usuario['id'] ?? 0;
+
+// Consulta para sacar todos los torneos disponibles
+$consulta_torneos = "SELECT id_torneo, nombre, fecha_texto, precio FROM torneos ORDER BY id_torneo ASC";
+$resultado_torneos = mysqli_query($conexion, $consulta_torneos);
 ?>
 
 <!DOCTYPE html>
@@ -63,14 +81,32 @@ if (!isset($_SESSION['usuario_nombre'])) {
         <section id="seccion-torneos">
             <h2>Próximos Torneos</h2>
             <div id="lista-torneos">
-                <article class="item-torneo">
-                    <p><strong>07 MAR</strong> - Torneo Pádel Mixto - 15€</p>
-                    <a href="apuntarse.html" class="btn-apuntarse">Apuntarse</a>
-                </article>
-                <article class="item-torneo">
-                    <p><strong>21 MAR</strong> - Liga Fútbol 7 - 80€/equipo</p>
-                    <a href="apuntarse.html" class="btn-apuntarse">Apuntarse</a>
-                </article>
+                <?php /* Por cada torneo que haya, fabrica un bloque article de HTML e inyecta su fecha, su nombre y su precio en el texto */ ?>
+                <?php if (mysqli_num_rows($resultado_torneos) > 0): ?>
+                    <?php while ($torneo = mysqli_fetch_assoc($resultado_torneos)): ?>
+                        <?php 
+                        $id_torneo = $torneo['id_torneo'];
+                        // Comprobamos si este usuario en concreto ya está inscrito en este torneo
+                        $consulta_check = "SELECT id_inscripcion FROM inscripciones_torneos WHERE id_usuario = '$id_usuario' AND id_torneo = '$id_torneo'";
+                        $resultado_check = mysqli_query($conexion, $consulta_check);
+                        $ya_apuntado = (mysqli_num_rows($resultado_check) > 0);
+                        ?>
+                        <article class="item-torneo">
+                            <p><strong><?php echo $torneo['fecha_texto']; ?></strong> - <?php echo $torneo['nombre']; ?> - <?php echo $torneo['precio']; ?></p>
+                            
+                            <?php if ($ya_apuntado): ?>
+                                <span class="btn-apuntado">✓ ¡Apuntado!</span>
+                            <?php else: ?>
+                                <form action="apuntarse_torneo.php" method="POST" style="margin: 0;">
+                                    <input type="hidden" name="id_torneo" value="<?php echo $id_torneo; ?>">
+                                    <button type="submit" class="btn-apuntarse">Apuntarse</button>
+                                </form>
+                            <?php endif; ?>
+                        </article>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <p>No hay torneos disponibles en este momento.</p>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -115,3 +151,4 @@ if (!isset($_SESSION['usuario_nombre'])) {
     </footer>
 </body>
 </html>
+<?php mysqli_close($conexion); ?>

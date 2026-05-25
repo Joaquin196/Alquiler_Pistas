@@ -101,3 +101,10 @@ h2 {
     font-weight: bold; /* O el estilo exacto que le tengas puesto en principal.css */
     margin-right: 15px;
 }
+
+.btn-apuntado {
+    color: #375839;
+    font-weight: bold;
+    padding: 5px 15px;
+    display: inline-block; /* Para que respete bien el padding si hace falta */
+}
