@@ -7,6 +7,20 @@ if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
 }
+
+// Conexión a la base de datos para sacar los datos del usuario logueado
+$conexion = mysqli_connect("localhost", "root", "", "novasport");
+
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+$usuario_nombre = $_SESSION['usuario_nombre'];
+// Sacamos el correo del usuario para autorrellenar el formulario
+$consulta_user = "SELECT email FROM usuarios WHERE nombre = '$usuario_nombre'";
+$resultado_user = mysqli_query($conexion, $consulta_user);
+$datos_usuario = mysqli_fetch_assoc($resultado_user);
+$usuario_correo = $datos_usuario['email'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -73,12 +87,15 @@ if (!isset($_SESSION['usuario_nombre'])) {
 
         <section id="contacto-ayuda">
             <h2>¿Aún necesitas ayuda?</h2>
-            <form id="form-ayuda">
-                <input type="text" placeholder="Tu nombre" class="campo-ayuda" required>
-                <input type="email" placeholder="Tu correo electrónico" class="campo-ayuda" required>
-                <textarea placeholder="Escribe tu duda..." class="campo-ayuda" rows="5" required></textarea>
+            
+            <form id="form-ayuda" action="enviar_ayuda.php" method="POST">
+                <?php // En los input metemos el php para autorrellenarlos con los datos del usuario logueado, así no tiene que escribirlos ?>
                 
-                <a href="mensaje_recibido.html" id="btn-enviar-ayuda">Enviar mensaje</a>
+                <input type="text" name="nombre" placeholder="Tu nombre" class="campo-ayuda" value="<?php echo $usuario_nombre; ?>" required>
+                <input type="email" name="correo" placeholder="Tu correo electrónico" class="campo-ayuda" value="<?php echo $usuario_correo; ?>" required>
+                <textarea name="mensaje" placeholder="Escribe tu duda..." class="campo-ayuda" rows="5" required></textarea>
+                
+                <button type="submit" id="btn-enviar-ayuda">Enviar mensaje</button>
             </form>
         </section>
     </section>
@@ -96,3 +113,4 @@ if (!isset($_SESSION['usuario_nombre'])) {
     </footer>
 </body>
 </html>
+<?php mysqli_close($conexion); ?>

@@ -61,6 +61,8 @@ h1 {
     border-radius: 4px;
     text-align: center;
     transition: background 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 #btn-enviar-ayuda:hover {
@@ -100,3 +102,4 @@ h1 {
     font-weight: bold; /* O el estilo exacto que le tengas puesto en principal.css */
     margin-right: 15px;
 }
+
