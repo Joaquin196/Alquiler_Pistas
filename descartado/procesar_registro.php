@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // 1. Incluimos el archivo que conecta con SQLyog
 include 'conexion.php';
 
@@ -21,11 +23,17 @@ $sql = "INSERT INTO usuarios (nombre, email, password) VALUES ('$nombre', '$emai
 
 // 6. Ejecutamos la consulta y comprobamos si ha funcionado
 if (mysqli_query($conexion, $sql)) {
-    echo "¡Cuenta creada con éxito en NovaSport! <a href='logeo.php'>Inicia sesión aquí</a>";
+    // Cerramos la conexión justo antes de irnos
+    mysqli_close($conexion);
+    
+    // Guardamos el nombre del nuevo usuario en la sesión para que principal.php lo reconozca
+    $_SESSION['usuario_nombre'] = $nombre;
+    
+    // Redirige directamente a la página principal con la nueva sesión activa
+    header("Location: principal.php");
+    exit();
 } else {
     echo "Error al registrar el usuario: " . mysqli_error($conexion);
+    mysqli_close($conexion);
 }
-
-// 7. Cerramos la conexión con la base de datos
-mysqli_close($conexion);
 ?>
