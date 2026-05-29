@@ -33,8 +33,6 @@ if (!isset($_SESSION['usuario_nombre'])) {
             </ul>
         </nav>
         <div id="iconos-derecha">
-            <img src="imagenes/espana.png" alt="pais" id="bandera">
-
             
             <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
                 <span class="user-welcome">

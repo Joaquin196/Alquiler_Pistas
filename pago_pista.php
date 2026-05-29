@@ -40,7 +40,6 @@ $volver_a = $_SESSION['pagina_origen'] ?? 'reservar.php';
             </ul>
         </nav>
         <div id="iconos-derecha">
-            <img src="imagenes/espana.png" alt="pais" id="bandera">
             <?php if (isset($_SESSION['usuario_nombre'])): ?> 
                 <span class="user-welcome">Hola, <?php echo $_SESSION['usuario_nombre']; ?></span>
                 <a href="cerrar_sesion.php" class="btn-logout">
