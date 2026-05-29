@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <p id="texto-registro">¿No tiene cuenta?</p>
             <a href="registro.php" class="link-secundario">Regístrese aquí</a>
-            <a href="rec_contraseña.html" class="link-secundario">¿Ha olvidado su contraseña?</a>
+            <a href="rec_contraseña.php" class="link-secundario">¿Ha olvidado su contraseña?</a>
         </form>
     </div>
 </body>
