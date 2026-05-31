@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
-/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+// Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login
+// Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta
 if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();

@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
-/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+// Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login
+// Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta
 if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
 }
 
-/*En este caso, nos conectamos a la base de datos, ya que realizaremos consultas (SELECT, INSERT, UPDATE, DELETE)*/
+// En este caso, nos conectamos a la base de datos, ya que realizaremos consultas (SELECT, INSERT, UPDATE, DELETE)
 $conexion = mysqli_connect("localhost", "root", "", "novasport");
 
 if (!$conexion) {
@@ -41,7 +41,7 @@ if (!$conexion) {
         </nav>
         <div id="iconos-derecha">
 
-            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+            <?php if (isset($_SESSION['usuario_nombre'])): // Usamos isset para comprobar si la variable existe y no está vacía ?> 
                 <span class="user-welcome">
                     Hola, <?php echo $_SESSION['usuario_nombre']; ?>
                 </span>
@@ -49,7 +49,7 @@ if (!$conexion) {
                     <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
                 </a>
             
-            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+            <?php else: // Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else ?>
                 <a href="registro.php">
                     <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
                 </a>
@@ -69,7 +69,7 @@ if (!$conexion) {
 
                 <div class="inputs">
                     <label for="fecha">¿Qué día quieres jugar?</label>
-                    <?php /*echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual */?>
+                    <?php // echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual ?>
                     <input type="date" id="fecha" name="fecha" required min="<?php echo date('Y-m-d'); ?>">
                 </div>
 

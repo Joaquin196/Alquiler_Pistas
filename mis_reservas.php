@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
-/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+// Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login
+// Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta
 if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
@@ -60,7 +60,7 @@ $resultado_historial = mysqli_query($conexion, $consulta_historial);
 
         <div id="iconos-derecha">
         
-            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+            <?php if (isset($_SESSION['usuario_nombre'])): // Usamos isset para comprobar si la variable existe y no está vacía ?> 
                 <span class="user-welcome">
                     Hola, <?php echo $_SESSION['usuario_nombre']; ?>
                 </span>
@@ -68,7 +68,7 @@ $resultado_historial = mysqli_query($conexion, $consulta_historial);
                     <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
                 </a>
             
-            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+            <?php else: // Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else ?>
                 <a href="registro.php">
                     <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
                 </a>
@@ -82,8 +82,8 @@ $resultado_historial = mysqli_query($conexion, $consulta_historial);
         <section id="proximas-citas">
             <h2>Próximas Citas</h2>
 
-            <?php /* Si el número de filas del resultado de la consulta de próximas citas es mayor que 0, se mostrarán las reservas activas. */ ?>
-            <?php /* Si no, se mostrará un mensaje indicando que no hay próximas citas reservadas. */ ?>
+            <?php // Si el número de filas del resultado de la consulta de próximas citas es mayor que 0, se mostrarán las reservas activas. ?>
+            <?php // Si no, se mostrará un mensaje indicando que no hay próximas citas reservadas. ?>
             <?php if (mysqli_num_rows($resultado_activas) > 0): ?>
                 <?php while ($reserva = mysqli_fetch_assoc($resultado_activas)): ?>
                     <article class="reserva-activa">
@@ -117,8 +117,8 @@ $resultado_historial = mysqli_query($conexion, $consulta_historial);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php /* Si el número de filas del resultado de la consulta del historial de reservas es mayor que 0, se mostrarán las reservas anteriores. */ ?>
-                        <?php /* Si no, se mostrará un mensaje indicando que no hay reservas anteriores en el historial */ ?>
+                        <?php // Si el número de filas del resultado de la consulta del historial de reservas es mayor que 0, se mostrarán las reservas anteriores. ?>
+                        <?php // Si no, se mostrará un mensaje indicando que no hay reservas anteriores en el historial ?>
                         <?php if (mysqli_num_rows($resultado_historial) > 0): ?>
                             <?php while ($historial = mysqli_fetch_assoc($resultado_historial)): ?>
                                 <tr>

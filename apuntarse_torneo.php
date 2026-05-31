@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
-/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+// Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login
+// Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta
 if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_torneo'])) {
     if ($datos_usuario) {
         $id_usuario = $datos_usuario['id'];
 
-        /* 2. Control de seguridad extra: verificar si ya está apuntado para no duplicar */
+        // 2. Control de seguridad extra: verificar si ya está apuntado para no duplicar
         $consulta_duplicado = "SELECT id_inscripcion FROM inscripciones_torneos WHERE id_usuario = '$id_usuario' AND id_torneo = '$id_torneo'";
         $resultado_duplicado = mysqli_query($conexion, $consulta_duplicado);
 

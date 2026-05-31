@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-/*Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login*/
-/*Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta*/
+// Esto es un control de seguridad, sirve para verificar que el usuario esté logueado y lo mandará al login
+// Por ejemplo, si escribimos en la URL directamente http://localhost/Alquiler_Pistas/principal.php ya no accederá sin cuenta
 if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
@@ -53,7 +53,7 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
         
         <div id="iconos-derecha">
             
-            <?php if (isset($_SESSION['usuario_nombre'])): /* Usamos isset para comprobar si la variable existe y no está vacía */?> 
+            <?php if (isset($_SESSION['usuario_nombre'])): // Usamos isset para comprobar si la variable existe y no está vacía ?> 
                 <span class="user-welcome">
                     Hola, <?php echo $_SESSION['usuario_nombre']; ?>
                 </span>
@@ -61,7 +61,7 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
                     <img src="imagenes/logout.png" alt="Cerrar sesión" id="user">
                 </a>
             
-            <?php else: /* Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else */?>
+            <?php else: // Si el usuario acaba de entrar sin logearse, la variable no existirá e irá al else ?>
                 <a href="registro.php">
                     <img src="imagenes/acceso.png" alt="Usuario" id="user"> 
                 </a>
@@ -80,7 +80,7 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
         <section id="seccion-torneos">
             <h2>Próximos Torneos</h2>
             <div id="lista-torneos">
-                <?php /* Por cada torneo que haya, fabrica un bloque article de HTML e inyecta su fecha, su nombre y su precio en el texto */ ?>
+                <?php // Por cada torneo que haya, fabrica un bloque article de HTML e inyecta su fecha, su nombre y su precio en el texto ?>
                 <?php if (mysqli_num_rows($resultado_torneos) > 0): ?>
                     <?php while ($torneo = mysqli_fetch_assoc($resultado_torneos)): ?>
                         <?php 
