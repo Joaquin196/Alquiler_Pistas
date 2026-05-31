@@ -147,3 +147,17 @@ footer {
         height: auto;
     }
 }
+
+html, body {
+    height: 100%; /* Obliga a la página a medir el total de la pantalla */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Coloca el header, el contenedor y el footer en fila vertical */
+}
+
+footer {
+    margin-top: auto; /* ¡Este es el truco! Empuja el footer hacia el fondo de la pantalla automáticamente */
+}

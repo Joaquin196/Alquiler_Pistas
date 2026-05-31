@@ -11,7 +11,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-#seccion-torneos, #seccion-ranking {
+#seccion-torneos {
     margin-bottom: 40px;
 }
 
@@ -50,20 +50,49 @@ h2 {
     color: white;
 }
 
-#tabla-ranking {
-    width: 100%;
-    border-collapse: collapse; /*Elimina el espacio entre las celdas de la tabla*/
-}
-
-#tabla-ranking th, #tabla-ranking td {
-    text-align: left;
-    padding: 12px;
-    border: 1px solid #eee;
-}
-
-#tabla-ranking th {
+/* Caja de sugerencia / ayuda para rellenar espacio de forma orgánica */
+.caja-ayuda-torneos {
     background-color: #f9f9f9;
-    color: #333;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 50px; /* Separa visualmente la sección superior */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.caja-ayuda-torneos h3 {
+    color: #375839;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.caja-ayuda-torneos p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-ir-ayuda {
+    display: inline-block;
+    background-color: #375839;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.btn-ir-ayuda:hover {
+    background-color: #2b452d;
 }
 
 @media (max-width: 600px) {
@@ -84,15 +113,14 @@ h2 {
         box-sizing: border-box;
     }
 
-    #contenedor-tabla {
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        border: 1px solid #eee;
+    .caja-ayuda-torneos {
+        padding: 20px;
+        margin-top: 30px;
     }
-
-    #tabla-ranking {
-        min-width: 450px;
+    
+    .btn-ir-ayuda {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 

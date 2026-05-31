@@ -70,6 +70,7 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
             
             
             
+            
         </div>
     </header>
 
@@ -108,32 +109,11 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
             </div>
         </section>
 
-        <section id="seccion-ranking">
-            <h2>Ranking Local</h2>
-            <div id="contenedor-tabla">
-                <table id="tabla-ranking">
-                    <thead>
-                        <tr>
-                            <th>Posición</th>
-                            <th>Jugador</th>
-                            <th>Puntos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1º</td>
-                            <td>Joaquín Molina</td>
-                            <td>1540</td>
-                        </tr>
-                        <tr>
-                            <td>2º</td>
-                            <td>Samuel de Luque</td>
-                            <td>1320</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <div class="caja-ayuda-torneos">
+            <h3>¿Tienes alguna duda sobre las reglas o las inscripciones?</h3>
+            <p>Si necesitas ayuda con los horarios, las normativas de los torneos o quieres proponernos una nueva competición, estamos aquí para ayudarte.</p>
+            <a href="ayuda.php" class="btn-ir-ayuda">Ir al Centro de Ayuda</a>
+        </div>
     </section>
 
     <footer>
