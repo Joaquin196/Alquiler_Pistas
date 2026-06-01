@@ -7,13 +7,6 @@ if (!isset($_SESSION['usuario_nombre'])) {
     header("Location: logeo.php");
     exit();
 }
-
-// En este caso, nos conectamos a la base de datos, ya que realizaremos consultas (SELECT, INSERT, UPDATE, DELETE)
-$conexion = mysqli_connect("localhost", "root", "", "novasport");
-
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
 ?>
 
 <!DOCTYPE html>

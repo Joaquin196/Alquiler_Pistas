@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM usuarios WHERE email = '$email_introducido'";
     $resultado = mysqli_query($conexion, $sql);
 
+    // Si el resultado no es falso y hay al menos un usuario con ese email, seguimos
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $usuario = mysqli_fetch_assoc($resultado);
 
@@ -65,7 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form id="login-form" action="" method="POST">
             <img src="imagenes/logo-transparent-png.png" alt="Escudo del polideportivo" id="logo">
             <h2>Inicia sesión</h2>
-            
+
+            <?php // Mostramos el mensaje de error si existe ?>
             <?php if (!empty($error_login)): ?>
                 <p class="mensaje-error"><?php echo $error_login; ?></p>
             <?php endif; ?>
