@@ -170,10 +170,14 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
                     <td><?php echo $res['fecha']; ?></td>
                     <td><?php echo $res['hora']; ?></td>
                     <td>
-                        <form action="admin.php" method="POST" class="form-inline">
-                            <input type="hidden" name="id_reserva_borrar" value="<?php echo $res['id_reserva']; ?>">
-                            <button type="submit" class="btn-borrar">Eliminar</button>
-                        </form>
+                        <div class="acciones-celda">
+                            <a href="editar_reserva.php?id=<?php echo $res['id_reserva']; ?>" class="btn-editar">Editar</a>
+
+                            <form action="admin.php" method="POST" class="form-inline">
+                                <input type="hidden" name="id_reserva_borrar" value="<?php echo $res['id_reserva']; ?>">
+                                <button type="submit" class="btn-borrar">Eliminar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 <?php endwhile; ?>
