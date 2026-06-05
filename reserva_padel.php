@@ -51,6 +51,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
             
             
             
+            
         </div>
     </header>
     <section id="foto-reserva">
@@ -66,8 +67,8 @@ if (!isset($_SESSION['usuario_nombre'])) {
 
                 <div class="inputs">
                     <label for="fecha">¿Qué día quieres jugar?</label>
-                    <?php // echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual ?>
-                    <input type="date" id="fecha" name="fecha" required min="<?php echo date('Y-m-d'); ?>">
+                    <?php // echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual y value la inicializa a hoy ?>
+                    <input type="date" id="fecha" name="fecha"  value="<?php echo date('Y-m-d'); ?>">
                 </div>
 
                 <div class="inputs">
@@ -103,10 +104,10 @@ if (!isset($_SESSION['usuario_nombre'])) {
     <footer>
         <div id="caja-footer">
             <div id="footer-nav">
-                <a href="">Reservar pistas</a>
-                <a href="">Mis reservas</a>
-                <a href="">Competiciones</a>
-                <a href="">Ayuda</a>
+                <a href="reservar.php">Reservar pistas</a>
+                <a href="mis_reservas.php">Mis reservas</a>
+                <a href="competiciones.php">Competiciones</a>
+                <a href="ayuda.php">Ayuda</a>
             </div>
             
             <p id="copyright">&copy; 2026 NovaSport - Todos los derechos reservados</p>

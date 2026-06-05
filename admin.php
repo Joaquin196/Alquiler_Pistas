@@ -12,6 +12,7 @@ include 'conexion.php';
 // Logica de procesamiento (Formularios POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
+    // Desactivamos temporalmente las comprobaciones de claves foráneas para evitar errores al borrar registros relacionados
     mysqli_query($conexion, "SET FOREIGN_KEY_CHECKS = 0");
 
     // 1. Borrar Usuario
@@ -123,10 +124,14 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
                     <td><?php echo $user['email']; ?></td>
                     <td><?php echo $user['fecha_registro']; ?></td>
                     <td>
-                        <form action="admin.php" method="POST" class="form-inline">
-                            <input type="hidden" name="id_usuario_borrar" value="<?php echo $user['id']; ?>">
-                            <button type="submit" class="btn-borrar">Eliminar</button>
-                        </form>
+                        <div class="acciones-celda">
+                            <a href="editar_usuario.php?id=<?php echo $user['id']; ?>" class="btn-editar">Editar</a>
+                            
+                            <form action="admin.php" method="POST" class="form-inline">
+                                <input type="hidden" name="id_usuario_borrar" value="<?php echo $user['id']; ?>">
+                                <button type="submit" class="btn-borrar">Eliminar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 <?php endwhile; ?>

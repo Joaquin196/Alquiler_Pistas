@@ -174,3 +174,26 @@ tr:hover {
 .btn-atendido:hover {
     background-color: #cc7a00;
 }
+
+/* Estilos para el nuevo botón de Editar en la tabla */
+.acciones-celda {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-editar {
+    display: inline-block;
+    background-color: #2a6f97;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-editar:hover {
+    background-color: #014f86;
+}

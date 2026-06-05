@@ -24,10 +24,15 @@ if (!$conexion) {
 // Avariguamos el id del usuario usando el nombre que tenemos en la sesión
 $usuario_nombre = $_SESSION['usuario_nombre'];
 $consulta_user = "SELECT id FROM usuarios WHERE nombre = '$usuario_nombre'";
+
+// mysqli_query($conexion, $consulta_user) ejecuta la consulta SQL que hemos escrito y devuelve un resultado que se guarda en $resultado_user. 
+// Luego, mysqli_fetch_assoc($resultado_user) toma ese resultado y lo convierte en un array asociativo 
+// (donde las columnas de la tabla son las claves del array) que se guarda en $datos_usuario para poder acceder fácilmente al id del usuario.
 $resultado_user = mysqli_query($conexion, $consulta_user);
 $datos_usuario = mysqli_fetch_assoc($resultado_user);
 
 if ($datos_usuario) {
+    // Guardamos el id del usuario en una variable para usarla en el INSERT de la reserva
     $id_usuario = $datos_usuario['id'];
 
     // Recuperamos el resto de datos de la reserva guardados en la sesión

@@ -1,0 +1,40 @@
+/* Contenedor principal del formulario de edición */
+.form-editar-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Línea separadora estética */
+.separador-form {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+/* Caja para alinear los botones del final */
+.botones-contenedor {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* Botón de cancelar / volver atrás */
+.btn-cancelar {
+    display: inline-block;
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a6268;
+}

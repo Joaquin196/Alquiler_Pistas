@@ -88,7 +88,7 @@ $resultado_historial = mysqli_query($conexion, $consulta_historial);
                 <?php while ($reserva = mysqli_fetch_assoc($resultado_activas)): ?>
                     <article class="reserva-activa">
                         <div class="info-reserva">
-                            <strong><?php echo strtoupper($reserva['deporte']); ?></strong>
+                            <strong><?php echo($reserva['deporte']); ?></strong>
                             <h3>Pista / Campo <?php echo $reserva['numero_pista']; ?></h3>
                             <p><?php echo $reserva['fecha']; ?> (<?php echo $reserva['hora']; ?>)</p>
                         </div>

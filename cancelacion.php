@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_reserva'])) {
         die("Error de conexión: " . mysqli_connect_error());
     }
 
+    // Usamos mysqli_real_escape_string para evitar inyecciones SQL
     $id_reserva = mysqli_real_escape_string($conexion, $_POST['id_reserva']);
 
     // Borramos la reserva usando el ID único que llega del formulario

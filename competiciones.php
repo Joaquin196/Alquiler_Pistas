@@ -20,6 +20,8 @@ $usuario_nombre = $_SESSION['usuario_nombre'];
 $consulta_user = "SELECT id FROM usuarios WHERE nombre = '$usuario_nombre'";
 $resultado_user = mysqli_query($conexion, $consulta_user);
 $datos_usuario = mysqli_fetch_assoc($resultado_user);
+
+// el ?? sirve para asignar un valor por defecto en caso de que la variable no exista, en este caso, 0
 $id_usuario = $datos_usuario['id'] ?? 0;
 
 // Consulta para sacar todos los torneos disponibles

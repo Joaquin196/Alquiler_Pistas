@@ -14,6 +14,7 @@ if (!isset($_SESSION['reserva_fecha'])) {
 }
 
 // Recuperamos el retorno dinámico
+// El ?? sirve para asignar un valor por defecto en caso de que la variable no exista, en este caso, reservar.php
 $volver_a = $_SESSION['pagina_origen'] ?? 'reservar.php';
 ?>
 <!DOCTYPE html>
@@ -82,7 +83,6 @@ $volver_a = $_SESSION['pagina_origen'] ?? 'reservar.php';
 
                 <button type="submit" id="btn-pagar">Confirmar y Pagar 8,50€</button>
             </form>
-            
             <a href="<?php echo $volver_a; ?>" id="btn-cancelar-pago">Cancelar y volver</a>
         </div>
     </section>
