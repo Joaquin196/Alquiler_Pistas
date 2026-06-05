@@ -96,7 +96,7 @@ $resultado_torneos = mysqli_query($conexion, $consulta_torneos);
                             <p><strong><?php echo $torneo['fecha_texto']; ?></strong> - <?php echo $torneo['nombre']; ?> - <?php echo $torneo['precio']; ?></p>
                             
                             <?php if ($ya_apuntado): ?>
-                                <span class="btn-apuntado">✓ ¡Apuntado!</span>
+                                <span class="btn-apuntado">¡Apuntado!</span>
                             <?php else: ?>
                                 <form action="apuntarse_torneo.php" method="POST" style="margin: 0;">
                                     <input type="hidden" name="id_torneo" value="<?php echo $id_torneo; ?>">

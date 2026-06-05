@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_nombre']) || $_SESSION['usuario_nombre'] !== 'admi
 
 include 'conexion.php';
 
-// 2. CAPTURA DE DATOS ACTUALES (Método GET)
+// 2. Captura de datos actuales (Método GET)
 if (isset($_GET['id'])) {
     $id_usuario = $_GET['id'];
     
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-// 3. PROCESAMIENTO DEL CAMBIO (Método POST)
+// 3. Procesamiento del cambio (Método POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_update = $_POST['id_usuario'];
     $nuevo_nombre = $_POST['nombre'];
