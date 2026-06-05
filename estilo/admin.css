@@ -197,3 +197,50 @@ tr:hover {
 .btn-editar:hover {
     background-color: #014f86;
 }
+
+/* ========================================================
+   ESTILOS PARA LA PAGINACIÓN DE TABLAS
+   ======================================================== */
+
+/* Contenedor principal que centra los botones debajo de la tabla */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+}
+
+/* Estilo base de cada número de página */
+.btn-pagina {
+    display: inline-block;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: #2a6f97; /* Azul corporativo */
+    border: 1px solid #a3c4f3;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Cambio de color cuando el administrador pasa el ratón por encima */
+.btn-pagina:hover {
+    background-color: #e2eafc;
+    border-color: #2a6f97;
+    color: #1a4968;
+    transform: translateY(-1px);
+}
+
+/* Estilo exclusivo para resaltar la página en la que se encuentra actualmente */
+.btn-pagina.activa {
+    background-color: #2a6f97;
+    color: #ffffff;
+    border-color: #2a6f97;
+    cursor: default;
+    pointer-events: none; /* Evita que se pueda hacer clic en la página ya activa */
+    box-shadow: 0 4px 6px rgba(42, 111, 151, 0.2);
+}

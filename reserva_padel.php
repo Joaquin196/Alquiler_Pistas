@@ -68,7 +68,7 @@ if (!isset($_SESSION['usuario_nombre'])) {
                 <div class="inputs">
                     <label for="fecha">¿Qué día quieres jugar?</label>
                     <?php // echo date('Y-m-d') sirve para que el navegador no admita fechas anteriores a la actual y value la inicializa a hoy ?>
-                    <input type="date" id="fecha" name="fecha"  value="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>">
                 </div>
 
                 <div class="inputs">

@@ -53,10 +53,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $buscar_usuario = isset($_GET['buscar_usuario']) ? $_GET['buscar_usuario'] : '';
 $buscar_deporte = isset($_GET['buscar_deporte']) ? $_GET['buscar_deporte'] : '';
 
-// Consultas a la base de datos 
-$usuarios = mysqli_query($conexion, "SELECT id, nombre, email, fecha_registro FROM usuarios WHERE nombre != 'admin' AND nombre LIKE '%$buscar_usuario%'");
-$reservas = mysqli_query($conexion, "SELECT r.id_reserva, u.nombre AS usuario_nombre, r.deporte, r.fecha, r.hora, r.numero_pista FROM reservas r JOIN usuarios u ON r.id_usuario = u.id WHERE r.deporte LIKE '%$buscar_deporte%'");
+// Logica de configiración de paginación
+
+$limite = 5; // Cantidad de filas por página
+
+// Cálculo de página y desfase (Offset) para Usuarios
+$pagina_usuarios = isset($_GET['p_user']) ? (int)$_GET['p_user'] : 1;
+if ($pagina_usuarios < 1) $pagina_usuarios = 1;
+$offset_usuarios = ($pagina_usuarios - 1) * $limite;
+
+// Cálculo de página y desfase (Offset) para Reservas
+$pagina_reservas = isset($_GET['p_res']) ? (int)$_GET['p_res'] : 1;
+if ($pagina_reservas < 1) $pagina_reservas = 1;
+$offset_reservas = ($pagina_reservas - 1) * $limite;
+
+// Consultas para calcular las páginas
+
+$res_total_user = mysqli_query($conexion, "SELECT COUNT(*) AS total FROM usuarios WHERE nombre != 'admin' AND nombre LIKE '%$buscar_usuario%'");
+$total_filas_user = mysqli_fetch_assoc($res_total_user)['total'];
+$total_paginas_usuarios = ceil($total_filas_user / $limite);
+
+$res_total_res = mysqli_query($conexion, "SELECT COUNT(*) AS total FROM reservas r JOIN usuarios u ON r.id_usuario = u.id WHERE r.deporte LIKE '%$buscar_deporte%'");
+$total_filas_res = mysqli_fetch_assoc($res_total_res)['total'];
+$total_paginas_reservas = ceil($total_filas_res / $limite);
+
+// Consultas de datos con filtros y paginación
+
+$usuarios = mysqli_query($conexion, "SELECT id, nombre, email, fecha_registro FROM usuarios WHERE nombre != 'admin' AND nombre LIKE '%$buscar_usuario%' LIMIT $offset_usuarios, $limite");
+
+$reservas = mysqli_query($conexion, "SELECT r.id_reserva, u.nombre AS usuario_nombre, r.deporte, r.fecha, r.hora, r.numero_pista FROM reservas r JOIN usuarios u ON r.id_usuario = u.id WHERE r.deporte LIKE '%$buscar_deporte%' LIMIT $offset_reservas, $limite");
+
 $competiciones = mysqli_query($conexion, "SELECT i.id_inscripcion, u.nombre AS usuario_nombre, t.nombre AS torneo_nombre FROM inscripciones_torneos i JOIN usuarios u ON i.id_usuario = u.id JOIN torneos t ON i.id_torneo = t.id_torneo");
+
 $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje, fecha_envio FROM mensajes_ayuda");
 ?>
 
@@ -102,6 +130,8 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
     <?php // Formulario de búsqueda de usuarios ?>
     <form method="GET" action="admin.php" class="form-filtro">
         <input type="text" name="buscar_usuario" placeholder="Buscar usuario por nombre..." value="<?php echo $buscar_usuario; ?>">
+        <input type="hidden" name="buscar_deporte" value="<?php echo $buscar_deporte; ?>">
+        <input type="hidden" name="p_res" value="<?php echo $pagina_reservas; ?>">
         <button type="submit" class="btn-filtrar">Buscar</button>
     </form>
     
@@ -137,6 +167,15 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
                 <?php endwhile; ?>
             </tbody>
         </table>
+
+        <div class="paginacion">
+            <?php for($i = 1; $i <= $total_paginas_usuarios; $i++): ?>
+                <a href="admin.php?p_user=<?php echo $i; ?>&buscar_usuario=<?php echo $buscar_usuario; ?>&p_res=<?php echo $pagina_reservas; ?>&buscar_deporte=<?php echo $buscar_deporte; ?>" 
+                   class="btn-pagina <?php echo ($i == $pagina_usuarios) ? 'activa' : ''; ?>">
+                    <?php echo $i; ?>
+                </a>
+            <?php endfor; ?>
+        </div>
     </div>
 
     <h2>Gestion de Reservas</h2>
@@ -144,6 +183,8 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
     <?php // Formulario de filtro de reservas por deporte ?>
     <form method="GET" action="admin.php" class="form-filtro">
         <input type="text" name="buscar_deporte" placeholder="Filtrar por deporte (Padel, Futbol...)..." value="<?php echo $buscar_deporte; ?>">
+        <input type="hidden" name="buscar_usuario" value="<?php echo $buscar_usuario; ?>">
+        <input type="hidden" name="p_user" value="<?php echo $pagina_usuarios; ?>">
         <button type="submit" class="btn-filtrar">Filtrar</button>
     </form>
 
@@ -183,6 +224,15 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
                 <?php endwhile; ?>
             </tbody>
         </table>
+
+        <div class="paginacion">
+            <?php for($i = 1; $i <= $total_paginas_reservas; $i++): ?>
+                <a href="admin.php?p_res=<?php echo $i; ?>&buscar_deporte=<?php echo $buscar_deporte; ?>&p_user=<?php echo $pagina_usuarios; ?>&buscar_usuario=<?php echo $buscar_usuario; ?>" 
+                   class="btn-pagina <?php echo ($i == $pagina_reservas) ? 'activa' : ''; ?>">
+                    <?php echo $i; ?>
+                </a>
+            <?php endfor; ?>
+        </div>
     </div>
 
     <h2>Inscripciones a Torneos</h2>
@@ -216,7 +266,6 @@ $mensajes = mysqli_query($conexion, "SELECT id_mensaje, nombre, correo, mensaje,
 
     <h2>Mensajes de Soporte y Ayuda</h2>
 
-    <?php // Sección de mensajes de ayuda con opción de marcar como atendido (borrar) ?>
     <div class="tabla-contenedor">
         <table>
             <thead>

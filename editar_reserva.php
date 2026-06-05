@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_nombre']) || $_SESSION['usuario_nombre'] !== 'admi
 
 include 'conexion.php';
 
-// 2. CAPTURA DE LA RESERVA ACTUAL (Método GET)
+// 2. Captura de la reserva actual (Método GET)
 if (isset($_GET['id'])) {
     $id_reserva = $_GET['id'];
     
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
                     WHERE r.id_reserva = '$id_reserva'";
                     
     $resultado = mysqli_query($conexion, $sql_reserva);
-    
+    // Si existe esa reserva, la guardamos en $reserva para mostrarla en el formulario. Si no, volvemos al admin.php
     if (mysqli_num_rows($resultado) == 1) {
         $reserva = mysqli_fetch_assoc($resultado);
     } else {
@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-// 3. PROCESAMIENTO DEL CAMBIO (Método POST)
+// 3. Procesamiento del cambio (Método POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_update = $_POST['id_reserva'];
     $nueva_fecha = $_POST['fecha'];
