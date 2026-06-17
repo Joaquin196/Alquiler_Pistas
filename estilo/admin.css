@@ -244,3 +244,25 @@ tr:hover {
     pointer-events: none; /* Evita que se pueda hacer clic en la página ya activa */
     box-shadow: 0 4px 6px rgba(42, 111, 151, 0.2);
 }
+
+/* Contenedor del formulario de búsqueda */
+.form-buscar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Caja de texto del buscador */
+.input-buscar {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Ajuste específico para el botón de buscar */
+.btn-buscar {
+    width: auto;
+    margin: 0;
+}

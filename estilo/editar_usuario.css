@@ -38,3 +38,35 @@
 .btn-cancelar:hover {
     background-color: #5a6268;
 }
+
+/* Margen superior específico para la vista de edición */
+.contenedor-editar {
+    margin-top: 50px;
+}
+
+/* Contenedor de la botonera inferior del formulario */
+.bloque-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Modificador para que el botón de guardar no ocupe todo el ancho */
+.btn-ancho-auto {
+    width: auto;
+}
+
+/* Estilo para que el enlace de volver parezca un botón gris alineado */
+.btn-volver {
+    background-color: #6c757d;
+    text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    padding: 0 15px;
+    border-radius: 4px;
+}
+
+.btn-volver:hover {
+    background-color: #5a6268;
+}
