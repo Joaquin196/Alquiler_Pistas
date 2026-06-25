@@ -266,3 +266,40 @@ tr:hover {
     width: auto;
     margin: 0;
 }
+
+/* --- CONTENEDOR --- */
+.paginador-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    font-family: sans-serif;
+}
+
+/* --- BOTONES (ENLACES) --- */
+.pag-enlace {
+    color: #000000;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Cambio sutil al pasar el ratón */
+.pag-enlace:hover {
+    background-color: #f5f5f5;
+}
+
+/* --- TEXTO INFORMATIVO --- */
+.pag-info {
+    font-size: 14px;
+    color: #555555;
+}
+
+/* --- BOTÓN DESACTIVADO --- */
+.pag-enlace.desactivado {
+    color: #ccc;
+    border-color: #eee;
+    pointer-events: none; /* Bloquea el clic */
+}

@@ -17,7 +17,7 @@ if (isset($_POST['crear_usuario'])) {
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
 
-    // Sentencia preparada para evitar inyecciones SQL    
+    // Sentencia preparada para evitar inyecciones SQL
     $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email) VALUES (:nom, :em)");
     $stmt->execute([
         ':nom' => $nombre,
@@ -47,8 +47,30 @@ if (isset($_GET['borrar_id'])) {
 }
 
 // ==========================================
-// 3. LEER (READ) -> Con Filtro de Búsqueda
+// 3. LEER (READ) -> Con Filtro de Búsqueda y Paginación
 // ==========================================
+
+// --- VARIABLES PARA EL PAGINADOR ---
+
+// 1. Decidimos mostrar 5 usuarios por página
+$limite = 5; 
+
+// 2. Miramos si existe 'p_user' en la URL
+if (isset($_GET['p_user'])) {
+    // Si el admin pulsó un botón, capturamos ese número
+    $pagina_actual = (int)$_GET['p_user'];
+} else {
+    // Si acaba de entrar al panel, por defecto va a la página 1
+    $pagina_actual = 1;
+}
+
+// 3. Seguro: si manipulan la URL y ponen una página menor que 1, la forzamos a 1
+if ($pagina_actual < 1) {
+    $pagina_actual = 1;
+}
+
+
+// --- FILTRO DE BÚSQUEDA ---
 
 // A. Inicializamos la variable de búsqueda vacía por defecto
 $buscar = "";
@@ -58,20 +80,54 @@ if (isset($_GET['buscar_usuario'])) {
     $buscar = $_GET['buscar_usuario'];
 }
 
-// C. Preparamos la consulta usando LIKE y un marcador de posición
-$stmt_usuarios = $pdo->prepare("SELECT id, nombre, email FROM usuarios WHERE nombre != 'admin' AND (nombre LIKE :buscar OR email LIKE :buscar)");
 
-// D. Ejecutamos pasando el texto rodeado de porcentajes % (comodines de SQL)
-$stmt_usuarios->execute([
+// --- CONTAR LOS USUARIOS REALES (AFECTADOS POR LA BÚSQUEDA) ---
+
+// 1. Contamos cuántos usuarios cumplen con la búsqueda actual (excluyendo al admin)
+$stmt_total = $pdo->prepare("SELECT COUNT(*) AS total FROM usuarios WHERE nombre != 'admin' AND (nombre LIKE :buscar OR email LIKE :buscar)");
+$stmt_total->execute([
     ':buscar' => "%" . $buscar . "%"
 ]);
+$total_filas = $stmt_total->fetch(PDO::FETCH_ASSOC)['total']; 
+
+// 2. Calculamos cuántas páginas necesitamos basándonos en ese total filtrado
+$total_paginas = ceil($total_filas / $limite);
+
+// 3. Si la base de datos está vacía o no hay resultados, forzamos a que haya al menos una página
+if ($total_paginas < 1) {
+    $total_paginas = 1;
+}
+
+// 4. Si alguien pone en la URL un número de página mayor, lo forzamos a la última página
+if ($pagina_actual > $total_paginas) {
+    $pagina_actual = $total_paginas;
+}
+
+// Calculamos cuántos registros nos saltamos para llegar a la página actual
+$offset = ($pagina_actual - 1) * $limite;
+
+
+// --- CONSULTA FINAL PAGINADA Y FILTRADA ---
+
+// C. Preparamos la consulta metiendo las condiciones de búsqueda y los límites
+$stmt_usuarios = $pdo->prepare("SELECT id, nombre, email FROM usuarios WHERE nombre != 'admin' AND (nombre LIKE :buscar OR email LIKE :buscar) LIMIT :limite OFFSET :offset");
+
+// Vinculamos primero los marcadores de texto (el buscador)
+$stmt_usuarios->bindValue(':buscar', "%" . $buscar . "%", PDO::PARAM_STR);
+
+// Vinculamos los marcadores numéricos obligatorios para el paginador
+$stmt_usuarios->bindValue(':limite', $limite, PDO::PARAM_INT);
+$stmt_usuarios->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+// Ejecutamos la consulta final
+$stmt_usuarios->execute();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel CRUD</title>
+    <title>Panel de Administrador</title>
     <link rel="stylesheet" href="estilo/admin.css">
 </head>
 <body>
@@ -141,6 +197,38 @@ $stmt_usuarios->execute([
                 <?php endwhile; ?>
             </tbody>
         </table>
+        
+        <div class="paginador-contenedor">
+            
+            <a href="admin.php?p_user=1&buscar_usuario=<?php echo urlencode($buscar); ?>" 
+            class="pag-enlace <?php echo ($pagina_actual <= 1) ? 'desactivado' : ''; ?>">
+            &lt;&lt;
+            </a>
+
+            <?php $pagina_anterior = $pagina_actual - 1; ?>
+            <a href="admin.php?p_user=<?php echo $pagina_anterior; ?>&buscar_usuario=<?php echo urlencode($buscar); ?>" 
+            class="pag-enlace <?php echo ($pagina_actual <= 1) ? 'desactivado' : ''; ?>">
+            &lt;
+            </a>
+
+            <span class="pag-info">
+                Página <?php echo $pagina_actual; ?> de <?php echo $total_paginas; ?>
+            </span>
+
+            <?php $pagina_siguiente = $pagina_actual + 1; ?>
+            <a href="admin.php?p_user=<?php echo $pagina_siguiente; ?>&buscar_usuario=<?php echo urlencode($buscar); ?>" 
+            class="pag-enlace <?php echo ($pagina_actual >= $total_paginas) ? 'desactivado' : ''; ?>">
+            &gt;
+            </a>
+
+            <a href="admin.php?p_user=<?php echo $total_paginas; ?>&buscar_usuario=<?php echo urlencode($buscar); ?>" 
+            class="pag-enlace <?php echo ($pagina_actual >= $total_paginas) ? 'desactivado' : ''; ?>">
+            &gt;&gt;
+            </a>
+
+        </div>
+
+
     </div>
 
 </div>
